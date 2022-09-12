@@ -1,5 +1,8 @@
 # Portal Municipal Theme
 ## Wordpress: 5.8.1 (Required 3 plugins to be installed |WPGlobus|Modula|cmb2)
+License: GPLv2 or later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
+
 
 [Wordpress.org](https://wordpress.org/)
 
