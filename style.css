@@ -1,0 +1,82 @@
+/*
+Theme Name:     Portal
+Author:         Helder Chebre
+Version:        1.0.0
+Description:    There is no one who loves pain itself, who seeks after it and wants to have it, simply because it is pain...
+*/
+
+* {
+    overflow-wrap: break-word;
+}
+
+.text-dark{
+    color: #202b5d;
+}
+.separator {
+    border-bottom: 1px dashed #aaa;
+}
+
+
+@media (max-width: 576px) {
+    .hide-on-small-only {
+        display: none !important
+    }
+
+}
+
+@media (min-width: 576px) {
+    .hide-on-small-and-down {
+        display: none !important
+    }
+
+
+}
+
+@media (min-width: 768px) {
+    .hide-on-small-and-down {
+        display: block !important
+    }
+}
+@media only screen and (max-width: 992px) {
+    .hide-on-med-and-down {
+        display: none !important
+    }
+
+
+}
+
+
+/* ACCORDION */
+
+.collapsible-link::before {
+    content: '';
+    width: 14px;
+    height: 2px;
+    background: #960807;
+    position: absolute;
+    top: calc(50% - 1px);
+    right: 1rem;
+    display: block;
+    transition: all 0.3s;
+}
+
+/* Vertical line */
+.collapsible-link::after {
+    content: '';
+    width: 2px;
+    height: 14px;
+    background: #960807;
+    position: absolute;
+    top: calc(50% - 7px);
+    right: calc(1rem + 6px);
+    display: block;
+    transition: all 0.3s;
+}
+
+.collapsible-link[aria-expanded='true']::after {
+    transform: rotate(90deg) translateX(-1px);
+}
+
+.collapsible-link[aria-expanded='true']::before {
+    transform: rotate(180deg);
+}

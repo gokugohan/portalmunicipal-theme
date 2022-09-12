@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="e040ba39-7da6-4276-96c0-464a3acb5205" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
+    <pharConfigPath>$PROJECT_DIR$/functions/composer.json</pharConfigPath>
+    <execution />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CSS File" />
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/functions" />
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration">
+    <include_path>
+      <path value="$PROJECT_DIR$/../../../../president" />
+      <path value="$PROJECT_DIR$/functions/vendor/guzzlehttp/psr7" />
+      <path value="$PROJECT_DIR$/functions/vendor/symfony/deprecation-contracts" />
+      <path value="$PROJECT_DIR$/functions/vendor/guzzlehttp/promises" />
+      <path value="$PROJECT_DIR$/functions/vendor/league/oauth2-client" />
+      <path value="$PROJECT_DIR$/functions/vendor/guzzlehttp/guzzle" />
+      <path value="$PROJECT_DIR$/functions/vendor/composer" />
+      <path value="$PROJECT_DIR$/functions/vendor/psr/http-message" />
+      <path value="$PROJECT_DIR$/functions/vendor/ralouphie/getallheaders" />
+      <path value="$PROJECT_DIR$/functions/vendor/psr/http-factory" />
+      <path value="$PROJECT_DIR$/functions/vendor/paragonie/random_compat" />
+      <path value="$PROJECT_DIR$/functions/vendor/psr/http-client" />
+    </include_path>
+  </component>
+  <component name="ProjectId" id="29KcRykqRw6kLLK46AT0rNfzY93" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/functions" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\laragon\www\portalmunicipal\wp-content\themes\portalmunicipal\functions" />
+      <recent name="C:\laragon\www\portalmunicipal\wp-content\themes\portalmunicipal\templates" />
+      <recent name="C:\laragon\www\portalmunicipal\wp-content\themes\portalmunicipal\templates\oauth2client" />
+      <recent name="C:\laragon\www\portalmunicipal\wp-content\themes\portalmunicipal\assets\img" />
+      <recent name="C:\laragon\www\portalmunicipal\wp-content\themes\portalmunicipal" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\laragon\www\portalmunicipal\wp-content\themes\portalmunicipal\functions" />
+      <recent name="C:\laragon\www\portalmunicipal\wp-content\themes\portalmunicipal\templates\League\OAuth2\Client" />
+      <recent name="C:\laragon\www\portalmunicipal\wp-content\themes\portalmunicipal\templates" />
+      <recent name="C:\laragon\www\portalmunicipal\wp-content\themes\portalmunicipal" />
+      <recent name="C:\laragon\www\portalmunicipal\wp-content\themes\portalmunicipal\includes" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="e040ba39-7da6-4276-96c0-464a3acb5205" name="Default Changelist" comment="" />
+      <created>1652865215371</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1652865215371</updated>
+      <workItem from="1652865218294" duration="24537000" />
+      <workItem from="1655106607468" duration="14170000" />
+      <workItem from="1655964765978" duration="1573000" />
+      <workItem from="1656425096381" duration="22207000" />
+      <workItem from="1656646718286" duration="3206000" />
+      <workItem from="1656714212744" duration="8446000" />
+      <workItem from="1656780006156" duration="8599000" />
+      <workItem from="1657154527319" duration="5106000" />
+      <workItem from="1657511432338" duration="10391000" />
+      <workItem from="1657582848870" duration="10095000" />
+      <workItem from="1657667662631" duration="6066000" />
+      <workItem from="1657814367891" duration="10352000" />
+      <workItem from="1658053232282" duration="22000" />
+      <workItem from="1658053266493" duration="815000" />
+      <workItem from="1658290821617" duration="2567000" />
+      <workItem from="1658370426944" duration="729000" />
+      <workItem from="1658636382034" duration="20668000" />
+      <workItem from="1658879942024" duration="6793000" />
+      <workItem from="1660108813728" duration="2047000" />
+      <workItem from="1660186092445" duration="351000" />
+      <workItem from="1660186464075" duration="3507000" />
+      <workItem from="1660693332204" duration="19991000" />
+      <workItem from="1661087927694" duration="14341000" />
+      <workItem from="1661915915362" duration="6985000" />
+      <workItem from="1662078969997" duration="810000" />
+      <workItem from="1662233313948" duration="13000" />
+      <workItem from="1662597365258" duration="782000" />
+      <workItem from="1662681256486" duration="4755000" />
+      <workItem from="1662939957200" duration="7031000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="WordPressConfiguration" enabled="true">
+    <wordpressPath>C:\laragon\www\president</wordpressPath>
+  </component>
+</project>
