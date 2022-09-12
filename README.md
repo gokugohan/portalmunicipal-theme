@@ -1,5 +1,5 @@
-# My theme
-## Wordpress: 5.8.1 (Required 2 plugins to be installed |WPGlobus|Modula|cmb2)
+# Portal Municipal Theme
+## Wordpress: 5.8.1 (Required 3 plugins to be installed |WPGlobus|Modula|cmb2)
 
 [Wordpress.org](https://wordpress.org/)
 
