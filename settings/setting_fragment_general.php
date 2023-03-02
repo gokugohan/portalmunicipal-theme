@@ -49,7 +49,8 @@ function add_setting_fields_general_info()
 {
     add_settings_field_to_section('setting_base_url', "Portal Base URL", 'setting_base_url', 'general_theme_setting', 'setting_general_section');
     add_settings_field_to_section('setting_api_url', "API Url", 'setting_api_url', 'general_theme_setting', 'setting_general_section');
-    add_settings_field_to_section('setting_enable_faq', "Check to enable FAQ", 'setting_enable_faq', 'general_theme_setting', 'setting_general_section');
+    add_settings_field_to_section('setting_enable_faq', "Enable FAQ", 'setting_enable_faq', 'general_theme_setting', 'setting_general_section');
+    add_settings_field_to_section('setting_enable_training_platform', "Enable Training Platform", 'setting_enable_training_platform', 'general_theme_setting', 'setting_general_section');
     add_settings_field_to_section('setting_api_coursera_access_code', "Coursera One-Time Access Code", 'setting_api_coursera_access_code', 'general_theme_setting', 'setting_general_section');
     add_settings_field_to_section('setting_api_coursera_program_id', "Coursera Program Id", 'setting_api_coursera_program_id', 'general_theme_setting', 'setting_general_section');
 //    add_settings_field_to_section('setting_api_coursera_api_token', "Coursera API Token", 'setting_api_coursera_api_token', 'general_theme_setting', 'setting_general_section');
@@ -130,6 +131,19 @@ function setting_enable_faq()
            class="regular-text form-control"
            style="float:left"
            value="1" <?php checked(1, $options['setting_enable_faq'], true); ?>/>
+
+    <?php
+}
+
+function setting_enable_training_platform()
+{
+
+    $options = get_option('setting_settings_general');
+    ?>
+    <input type='checkbox' name='setting_settings_general[setting_enable_training_platform]'
+           class="regular-text form-control"
+           style="float:left"
+           value="1" <?php checked(1, $options['setting_enable_training_platform'], true); ?>/>
 
     <?php
 }

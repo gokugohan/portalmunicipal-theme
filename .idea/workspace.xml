@@ -4,7 +4,52 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e040ba39-7da6-4276-96c0-464a3acb5205" name="Default Changelist" comment="" />
+    <list default="true" id="e040ba39-7da6-4276-96c0-464a3acb5205" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/assets/css/course_carousel.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/css/flaticon.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/fonts/Flaticon.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/fonts/Flaticon.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/fonts/Flaticon.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/fonts/flaticon.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/hotosm_tls_health_facilities_points_2021_09_29_12_23_44.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/img/9QTpESGBXa32D29J77VR3d-970-80.jpg.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/img/LOGO_TIC_OFFICIAL.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/img/What-Is-Geographic-Information-Systems-Featured-1265x727.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/img/data-science.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/img/lib6.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/img/mobile.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/map/css/images/layers-2x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/footer.php.old" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/taxonomy-courses-category.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/hero_training_platform_01.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/hero_training_platform_02.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/template_homepage_with_municipality_cpt.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/css/education_platform.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/education_platform.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/css/footer.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/footer.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/css/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/css/map/map.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/map/map.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/css/profile_list.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/profile_list.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/map/css/map.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/map/css/map.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/map/js/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/map/js/script.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/footer.php" beforeDir="false" afterPath="$PROJECT_DIR$/footer.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/functions.php" beforeDir="false" afterPath="$PROJECT_DIR$/functions.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/header.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/hero.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/hero.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/top_bar_menu.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/top_bar_menu.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lang/lang.php" beforeDir="false" afterPath="$PROJECT_DIR$/lang/lang.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings/setting_fragment_general.php" beforeDir="false" afterPath="$PROJECT_DIR$/settings/setting_fragment_general.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/footer_training_platform.php" beforeDir="false" afterPath="$PROJECT_DIR$/templates/footer_training_platform.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/template_homepage.php" beforeDir="false" afterPath="$PROJECT_DIR$/templates/template_homepage.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/template_iframe.php" beforeDir="false" afterPath="$PROJECT_DIR$/templates/template_iframe.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/template_map.php" beforeDir="false" afterPath="$PROJECT_DIR$/templates/template_map.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/template_service_to_citizen.php" beforeDir="false" afterPath="$PROJECT_DIR$/templates/template_service_to_citizen.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/template_training_platform_authentication.php" beforeDir="false" afterPath="$PROJECT_DIR$/templates/template_training_platform_authentication.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/template_training_platform_with_faq.php" beforeDir="false" afterPath="$PROJECT_DIR$/templates/template_training_platform_with_faq.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -17,13 +62,13 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="CSS File" />
         <option value="JavaScript File" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/functions" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
@@ -42,27 +87,30 @@
     </include_path>
   </component>
   <component name="ProjectId" id="29KcRykqRw6kLLK46AT0rNfzY93" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/functions" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\laragon\www\portalmunicipal\wp-content\themes\portalmunicipal\functions" />
-      <recent name="C:\laragon\www\portalmunicipal\wp-content\themes\portalmunicipal\templates" />
-      <recent name="C:\laragon\www\portalmunicipal\wp-content\themes\portalmunicipal\templates\oauth2client" />
-      <recent name="C:\laragon\www\portalmunicipal\wp-content\themes\portalmunicipal\assets\img" />
       <recent name="C:\laragon\www\portalmunicipal\wp-content\themes\portalmunicipal" />
+      <recent name="C:\laragon\www\portalmunicipal\wp-content\themes\portalmunicipal\templates" />
+      <recent name="C:\laragon\www\portalmunicipal\wp-content\themes\portalmunicipal\functions\cpt" />
+      <recent name="C:\laragon\www\portalmunicipal\wp-content\themes\portalmunicipal\assets\map\css\images" />
+      <recent name="C:\laragon\www\portalmunicipal\wp-content\themes\portalmunicipal\functions" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\laragon\www\portalmunicipal\wp-content\themes\portalmunicipal\functions" />
@@ -108,12 +156,48 @@
       <workItem from="1662233313948" duration="13000" />
       <workItem from="1662597365258" duration="782000" />
       <workItem from="1662681256486" duration="4755000" />
-      <workItem from="1662939957200" duration="7031000" />
+      <workItem from="1662939957200" duration="7946000" />
+      <workItem from="1663478992220" duration="1026000" />
+      <workItem from="1663551535756" duration="7195000" />
+      <workItem from="1663819000015" duration="7644000" />
+      <workItem from="1664154613632" duration="11694000" />
+      <workItem from="1664237094370" duration="3222000" />
+      <workItem from="1664865148112" duration="31000" />
+      <workItem from="1664865199788" duration="3863000" />
+      <workItem from="1664869469597" duration="1412000" />
+      <workItem from="1664928105959" duration="7086000" />
+      <workItem from="1664946463386" duration="8990000" />
+      <workItem from="1665027412841" duration="8148000" />
+      <workItem from="1665104227253" duration="1474000" />
+      <workItem from="1665716897977" duration="10064000" />
+      <workItem from="1665990283862" duration="43111000" />
+      <workItem from="1666832245047" duration="962000" />
+      <workItem from="1667347320530" duration="236000" />
+      <workItem from="1667347569175" duration="21000" />
+      <workItem from="1667519584689" duration="629000" />
+      <workItem from="1667552611150" duration="96000" />
+      <workItem from="1667910273284" duration="1986000" />
+      <workItem from="1668037091630" duration="1329000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="WordPressConfiguration" enabled="true">
     <wordpressPath>C:\laragon\www\president</wordpressPath>

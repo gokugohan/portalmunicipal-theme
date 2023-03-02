@@ -102,7 +102,7 @@ $api_url = api_url() . '/';
                 <div class="row">
                     <div class="col s12">
                         <ul class="tabs">
-                            <li class="tab s3"><a class="active" href="#layer-default">DEFAULT</a></li>
+<!--                            <li class="tab s3"><a class="active" href="#layer-default">DEFAULT</a></li>-->
                             <li class="tab s3"><a href="#layer-institutions">INSTITUTIONS</a></li>
                             <li class="tab s3"><a href="#layer-webmap">MAP SERVICE</a></li>
                             <li class="tab s3">
@@ -114,9 +114,9 @@ $api_url = api_url() . '/';
                             </li>
                         </ul>
                     </div>
-                    <div class="col s12" id="layer-default" style="max-height: 450px; overflow-y: scroll;">
-                        <ul id="list-of-default-maps" class="collection"></ul>
-                    </div>
+<!--                    <div class="col s12" id="layer-default" style="max-height: 450px; overflow-y: scroll;">-->
+<!--                        <ul id="list-of-default-maps" class="collection"></ul>-->
+<!--                    </div>-->
 
                     <div class="col s12" id="layer-institutions">
                         <br>
@@ -318,7 +318,7 @@ $api_url = api_url() . '/';
                 <br>GEOJSON, TOPOJSON, CSV, KML, or Zipped Shapefile Work
                 <br>
                 <span class="red-text">
-                    NB: CSV file, for each row, columns `Latitude`, `Longitude`, and `Title` are required!
+                    NB: CSV file, for each row, columns `lat`, `lon` are required!
                     <br>
                     Uploaded file is considered as a temporary file!
                 </span>
@@ -378,7 +378,7 @@ $api_url = api_url() . '/';
 
 <!-- <script src="https://labs.easyblog.it/maps/leaflet-search/src/leaflet-search.js"></script> -->
 <script src="<?php echo get_stylesheet_directory_uri() . '/assets/map/js/leaflet.js' ?>"></script>
-<script src="<?php echo get_stylesheet_directory_uri() . '/assets/map/js/leaflet.markercluster-League.js' ?>"></script>
+<script src="<?php echo get_stylesheet_directory_uri() . '/assets/map/js/leaflet.markercluster-src.js' ?>"></script>
 <script src="<?php echo get_stylesheet_directory_uri() . '/assets/map/js/leaflet.groupedlayercontrol.js' ?>"></script>
 <script src="<?php echo get_stylesheet_directory_uri() . '/assets/map/js/leaflet-measure.js' ?>"></script>
 <script src="<?php echo get_stylesheet_directory_uri() . '/assets/map/js/leaflet.contextmenu.js' ?>"></script>
@@ -425,6 +425,13 @@ $api_url = api_url() . '/';
 <script>
     $(document).ready(function () {
 
+        $.ajax({
+            url:'http://datasearch.test/tldp/en/api/dashboardapi/get-flip-rank-data/3/none/mrd/TLS003/1',
+            type:'get',
+            success:function(res){
+                console.log(res);
+            }
+        });
 
         $("body").on("focus", "#input-search", function () {
             $(".info-list").show();

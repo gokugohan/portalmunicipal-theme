@@ -140,12 +140,15 @@ $sponsor1_img = get_theme_mod('municipality_footer_education_platform_sponsor1')
 $sponsor2_img = get_theme_mod('municipality_footer_education_platform_sponsor2');
 $sponsor3_img = get_theme_mod('municipality_footer_education_platform_sponsor3');
 $sponsor4_img = get_theme_mod('municipality_footer_education_platform_sponsor4');
+$sponsor5_img = get_theme_mod('municipality_footer_education_platform_sponsor5');
 
 
-$sponsor1_url = filter_text_wpglobus(get_theme_mod('municipality_footer_education_platform_sponsor1_url', '#!'));
-$sponsor2_url = filter_text_wpglobus(get_theme_mod('municipality_footer_education_platform_sponsor2_url', '#!'));
-$sponsor3_url = filter_text_wpglobus(get_theme_mod('municipality_footer_education_platform_sponsor3_url', '#!'));
-$sponsor4_url = filter_text_wpglobus(get_theme_mod('municipality_footer_education_platform_sponsor4_url', '#!'));
+$sponsor1_url = (get_theme_mod('municipality_footer_education_platform_sponsor1_url', '#!'));
+$sponsor2_url = (get_theme_mod('municipality_footer_education_platform_sponsor2_url', '#!'));
+$sponsor3_url = (get_theme_mod('municipality_footer_education_platform_sponsor3_url', '#!'));
+$sponsor4_url = (get_theme_mod('municipality_footer_education_platform_sponsor4_url', '#!'));
+$sponsor5_url = (get_theme_mod('municipality_footer_education_platform_sponsor5_url', '#!'));
+
 ?>
 <?php
 $home_url = site_url();
@@ -165,108 +168,107 @@ if (is_page(['plataforma-de-treinamentu', 'kona-ba-plataforma-treinamentu'])) {
 ?>
 
 <!-- Footer -->
-<footer style="background-color: #960807e6">
-    <div class="container py-5">
-        <div class="row py-4">
-            <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
-                <!--                <img src="--><? //= $menu_logo ?><!--" alt="" width="180" class="mb-3">-->
-                <h4 class="text-white"><?= filter_text_wpglobus(get_theme_mod('municipality_address_entity_name', 'Ministério da Administração Estatal')) ?></h4>
-                <p class="text-white">
-                    <?= filter_text_wpglobus(get_theme_mod('municipality_address_entity_address', 'Rua 20 de Maio, nº43, Dili, Timor-Leste')) ?>
+
+<footer id="footer" class="footer pb-0">
+
+    <div class="container">
+        <div class="row gy-4">
+            <div class="col-lg-4 col-md-12 footer-info">
+                <h4 class="logo ds-flex align-items-center">
+                    <?= filter_text_wpglobus(get_theme_mod('municipality_address_entity_name', 'Ministério da Administração Estatal')) ?>
+                </h4>
+                <p>
+                    <strong><?= lang('address') ?>
+                        :</strong> <?= filter_text_wpglobus(get_theme_mod('municipality_address_entity_address', 'Rua 20 de Maio, nº43, Dili, Timor-Leste')) ?>
                     <br>
-                    <?= filter_text_wpglobus(get_theme_mod('municipality_address_entity_phone', '(+670) 333 9077')) ?>
+                    <strong><?= lang('phone') ?>
+                        :</strong> <?= filter_text_wpglobus(get_theme_mod('municipality_address_entity_phone', '(+670) 333 9077')) ?>
                     <br>
-                    <?= filter_text_wpglobus(get_theme_mod('municipality_address_entity_email', 'portalmunicipal.mae@gmail.com')) ?>
+                    <strong><?= lang('email') ?>
+                        :</strong> <?= filter_text_wpglobus(get_theme_mod('municipality_address_entity_email', 'portalmunicipal.mae@gmail.com')) ?>
                     <br>
                 </p>
-                <!--                <ul class="list-inline mt-4">-->
-                <!--                    <li class="list-inline-item"><a href="#" target="_blank" title="twitter"><i-->
-                <!--                                    class="fa fa-twitter"></i></a></li>-->
-                <!--                    <li class="list-inline-item"><a href="#" target="_blank" title="facebook"><i-->
-                <!--                                    class="fa fa-facebook"></i></a></li>-->
-                <!--                    <li class="list-inline-item"><a href="#" target="_blank" title="instagram"><i-->
-                <!--                                    class="fa fa-instagram"></i></a></li>-->
-                <!--                    <li class="list-inline-item"><a href="#" target="_blank" title="pinterest"><i-->
-                <!--                                    class="fa fa-pinterest"></i></a></li>-->
-                <!--                    <li class="list-inline-item"><a href="#" target="_blank" title="vimeo"><i-->
-                <!--                                    class="fa fa-vimeo"></i></a></li>-->
-                <!--                </ul>-->
             </div>
-            <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+
+            <div class="col-lg-2 col-md-12 footer-links">
                 <h6 class="text-uppercase font-weight-bold text-white mb-4"><?= lang('External Link') ?></h6>
                 <?php get_menu_training_platform_external_links(); ?>
+
             </div>
-            <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+            <div class="col-lg-2 col-md-12 footer-links">
                 <h6 class="text-uppercase font-weight-bold mb-4 text-white"><?= lang('Legal') ?></h6>
                 <?php get_menu_training_platform_legal_links(); ?>
+
             </div>
-            <div class="col-lg-4 col-md-6 mb-lg-0">
+
+            <div class="col-lg-4 col-md-12 footer-contact text-md-start">
                 <h6 class="text-uppercase font-weight-bold mb-4 text-white"><?= lang('Sponsors') ?></h6>
-                <div class="p-1 rounded">
-                    <ul class="list-unstyled list-inline sponsors text-left">
-                        <li class="list-inline-item">
-                            <a class="btn-floating btn-fb mx-1" href="<?= $sponsor1_url ?>">
-                                <?php
-                                if ($sponsor1_img) {
-                                    ?>
-                                    <img class="sponsors-logo" alt="" src="<?= $sponsor1_img ?>">
-                                    <?php
-                                }
+                <div class="partners d-flex mt-4">
 
-                                ?>
-                            </a>
-                        </li>
-                        <li class="list-inline-item">
-                            <a class="btn-floating btn-tw mx-1" href="<?= $sponsor2_url ?>">
-                                <?php
-                                if ($sponsor2_img) {
-                                    ?>
-                                    <img class="sponsors-logo" alt="" src="<?= $sponsor2_img ?>">
-                                    <?php
-                                }
-                                ?>
-                            </a>
-                        </li>
-                        <li class="list-inline-item">
-                            <a class="btn-floating btn-gplus mx-1"
-                               href="<?= $sponsor3_url ?>">
-                                <?php
-                                if ($sponsor3_img) {
-                                    ?>
-                                    <img class="sponsors-logo" alt="" src="<?= $sponsor3_img ?>">
-                                    <?php
-                                }
-                                ?>
-                            </a>
-                        </li>
-                        <li class="list-inline-item">
-                            <a class="btn-floating btn-li mx-1" href="<?= $sponsor4_url ?>">
-                                <?php
-                                if ($sponsor4_img) {
-                                    ?>
-                                    <img class="sponsors-logo" alt="" src="<?= $sponsor4_img ?>">
-                                    <?php
-                                } ?>
+                    <?php
+                    if ($sponsor1_img) {
+                        ?>
+                        <a href="<?= $sponsor1_url ?>">
+                            <img class="sponsors-logo" alt="" src="<?= $sponsor1_img ?>">
+                        </a>
+                        <?php
+                    }
+                    ?>
 
-                            </a>
-                        </li>
 
-                    </ul>
+                    <?php
+                    if ($sponsor2_img) {
+                        ?>
+                        <a href="<?= $sponsor2_url ?>">
+                            <img class="sponsors-logo" alt="" src="<?= $sponsor2_img ?>"></a>
+                        <?php
+                    }
+                    ?>
+
+
+                    <?php if ($sponsor3_img) {
+                        ?>
+                        <a href="<?= $sponsor3_url ?>">
+                            <img class="sponsors-logo" alt="" src="<?= $sponsor3_img ?>">
+                        </a>
+                        <?php
+                    }
+                    ?>
+
+
+                    <?php
+                    if ($sponsor4_img) {
+                        ?>
+                        <a href="<?= $sponsor4_url ?>">
+                            <img class="sponsors-logo" alt="" src="<?= $sponsor4_img ?>">
+                        </a>
+                        <?php
+                    }
+                    ?>
+                    <?php
+
+                    if ($sponsor5_img) {
+                        ?>
+                        <a href="<?= $sponsor5_url ?>">
+                            <img class="sponsors-logo" alt="" src="<?= $sponsor5_img ?>">
+                        </a>
+                        <?php
+                    }
+                    ?>
+
+
                 </div>
             </div>
+
         </div>
     </div>
 
-    <!-- Copyrights -->
-    <div class="bg-red py-4">
-        <div class="container text-center">
-            <p class="text-white mb-0 py-2">
-                © <?= date('Y') ?> <span
-                        class="font-weight-bold">Ministério da Administração Estatal de Timor-Leste</span>. All
-                Rights Reserved.
-            </p>
+    <div class="container mt-4">
+        <div class="copyright">
+            &copy; <?= date('Y') ?><?= filter_text_wpglobus(get_theme_mod('municipality_address_entity_name', 'Ministério da Administração Estatal')) ?>
         </div>
     </div>
+
 </footer>
 <!-- End -->
 
@@ -278,17 +280,55 @@ if (is_page(['plataforma-de-treinamentu', 'kona-ba-plataforma-treinamentu'])) {
 <script src="<?php echo get_stylesheet_directory_uri() . '/assets/vendor/glightbox/js/glightbox.min.js' ?>"></script>
 <!--    <script src="--><?php //echo get_stylesheet_directory_uri() . '/assets/vendor/purecounter/purecounter.js' ?><!--"></script>-->
 <script src="<?php echo get_stylesheet_directory_uri() . '/assets/vendor/swiper/swiper-bundle.min.js' ?>"></script>
-<!--<script src='https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js'></script>-->
-<!--<script src='https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap4.min.js'></script>-->
-<h1><?= get_general_setting('setting_api_coursera_access_code') ?></h1>
 
 
+<!--<h1>--><? //= get_general_setting('setting_api_coursera_access_code') ?><!--</h1>-->
+
+<?php
+
+if (is_tax('courses-category')) {
+    ?>
+
+    <!--    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.2.3/css/buttons.dataTables.min.css">-->
+    <script src='https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js'></script>
+    <script src='https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap4.min.js'></script>
+    <!--    <script src='https://cdn.datatables.net/buttons/2.2.3/js/dataTables.buttons.min.js'></script>-->
+    <!--    <script src='https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js'></script>-->
+    <!--    <script src='https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js'></script>-->
+    <!--    <script src='https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js'></script>-->
+    <!--    <script src='https://cdn.datatables.net/buttons/2.2.3/js/buttons.html5.min.js'></script>-->
+    <!--    <script src='https://cdn.datatables.net/buttons/2.2.3/js/buttons.print.min.js'></script>-->
+    <?php
+}
+
+$bg1 = get_theme_mod('municipality_education_platform_hero_bg_1');
+$bg2 = get_theme_mod('municipality_education_platform_hero_bg_2');
+$bg3 = get_theme_mod('municipality_education_platform_hero_bg_3');
+
+
+$bg1 = strlen($bg1) > 0 ? $bg1 : get_stylesheet_directory_uri() . '/assets/img/lib6.jpg';
+$bg2 = strlen($bg2) > 0 ? $bg2 : get_stylesheet_directory_uri() . '/assets/img/lib6.jpg';
+$bg3 = strlen($bg3) > 0 ? $bg3 : get_stylesheet_directory_uri() . '/assets/img/lib6.jpg';
+
+?>
 <script>
     $(document).ready(function () {
 
         $('#hero-carousel').carousel({
             // interval: 10000,
-        })
+        });
+
+
+        let images = ["<?=$bg1?>", "<?=$bg2?>", "<?=$bg3?>"], i = 0;
+        setInterval(function () {
+            if (i === images.length) i = 0;
+
+            $("#hero").css("background-image", "url(" + images[i] + ")");
+            i++;
+
+        }, 5000);
+
+
         new WOW().init();
         const glightbox = GLightbox({
             selector: '.glightbox'
@@ -297,8 +337,10 @@ if (is_page(['plataforma-de-treinamentu', 'kona-ba-plataforma-treinamentu'])) {
         /**
          * Init swiper slider with 1 slide at once in desktop view
          */
-        new Swiper('.slides-why-us', {
+        new Swiper('.sliderFeaturedPosts', {
             speed: 600,
+            centeredSlides: true,
+            slideToClickedSlide: true,
             loop: true,
             autoplay: {
                 delay: 5000,
@@ -336,6 +378,21 @@ if (is_page(['plataforma-de-treinamentu', 'kona-ba-plataforma-treinamentu'])) {
             }, 300);
             return false;
         });
+
+        <?php
+        if(is_tax('courses-category')){
+        ?>
+        $("#table-courses").DataTable(
+            // {
+            //     dom: 'Bfrtip',
+            //     buttons: [
+            //         'copy', 'csv', 'excel', 'pdf', 'print'
+            //     ]
+            // }
+        );
+        <?php
+        }
+        ?>
 
         /*
 

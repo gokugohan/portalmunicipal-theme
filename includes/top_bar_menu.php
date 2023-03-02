@@ -3,14 +3,14 @@
         <?php
         $home_url = site_url();
 
-        if (is_page(['plataforma-de-treinamentu' ,'kona-ba-plataforma-treinamentu'])) {
+        if (is_page(['plataforma-de-treinamentu' ,'kona-ba-plataforma-treinamentu'])|| is_tax('courses-category')) {
             $home_url = site_url()."/plataforma-de-treinamentu";
         }
         ?>
         <a href="<?=$home_url?>" class="navbar-brand">
             <?php
 
-            if (is_page(['plataforma-de-treinamentu' ,'kona-ba-plataforma-treinamentu'])) {
+            if (is_page(['plataforma-de-treinamentu' ,'kona-ba-plataforma-treinamentu']) || is_tax('courses-category')) {
                 $menu_logo = get_theme_mod('municipality_education_platform_logo');
                 if ($menu_logo == null) {
                     $menu_logo = get_stylesheet_directory_uri() . '/assets/img/municipality_01.png';
@@ -38,62 +38,6 @@
 
         <div id="navbarSupportedContent" class="collapse navbar-collapse">
             <ul class="navbar-nav ml-auto">
-<!--                <li class="nav-item about-portal">-->
-<!--                    <a class="nav-link" href="--><?//=bloginfo('url')?><!--" title="--><?//= lang('home') ?><!--">-->
-<!--                        <span class="hide-on-med-and-downa">--><?//= lang('home') ?><!--</span>-->
-<!--                    </a>-->
-<!--                </li>-->
-
-<!--                <li class="nav-item dropdown" title="--><?php //echo $lang['tooltip']['portal_municipal']; ?><!--">-->
-<!--                    <a class="nav-item nav-link dropdown-toggle mr-md-2" href="#" id="bd-versions"-->
-<!--                       data-toggle="dropdown"-->
-<!--                       aria-expanded="true">-->
-<!--                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"-->
-<!--                             class="bi bi-grid-fill" viewBox="0 0 16 16">-->
-<!--                            <path d="M1 2.5A1.5 1.5 0 0 1 2.5 1h3A1.5 1.5 0 0 1 7 2.5v3A1.5 1.5 0 0 1 5.5 7h-3A1.5 1.5 0 0 1 1 5.5v-3zm8 0A1.5 1.5 0 0 1 10.5 1h3A1.5 1.5 0 0 1 15 2.5v3A1.5 1.5 0 0 1 13.5 7h-3A1.5 1.5 0 0 1 9 5.5v-3zm-8 8A1.5 1.5 0 0 1 2.5 9h3A1.5 1.5 0 0 1 7 10.5v3A1.5 1.5 0 0 1 5.5 15h-3A1.5 1.5 0 0 1 1 13.5v-3zm8 0A1.5 1.5 0 0 1 10.5 9h3a1.5 1.5 0 0 1 1.5 1.5v3a1.5 1.5 0 0 1-1.5 1.5h-3A1.5 1.5 0 0 1 9 13.5v-3z"/>-->
-<!--                        </svg>-->
-<!--                    </a>-->
-<!--                    <ul class="dropdown-menu dropdown-menu-md-right">-->
-<!--                        <li>-->
-<!---->
-<!--                            <a class="aa" href="/">-->
-<!--                                --><?php //echo lang('home') ?>
-<!--                            </a>-->
-<!--                        </li>-->
-<!--                        <li>-->
-<!---->
-<!--                            <a class="aa" href="--><?//= bloginfo('url') ?><!--#perfil-dos-municipios">-->
-<!--                                --><?php //echo lang('municipality-profile'); ?>
-<!--                            </a>-->
-<!--                        </li>-->
-<!--                        <li>-->
-<!--                            <a class="aa" href="#!" data-toggle="modal"-->
-<!--                               data-target="#modal-data-catalog">-->
-<!--                                --><?php //echo lang('data_catalog'); ?>
-<!--                            </a>-->
-<!--                        </li>-->
-<!--                        <li>-->
-<!--                            <a class="aa" href="--><?//= bloginfo('url') ?><!--/plataforma-de-treinamentu">-->
-<!--                                --><?php //echo lang('training-platform'); ?>
-<!--                            </a>-->
-<!--                        </li>-->
-<!--                        <li>-->
-<!--                            <a class="aa" href="--><?//= bloginfo('url') ?><!--#biblioteka" id="btn-view-librarysss">-->
-<!--                                --><?php //echo lang('library') ?>
-<!--                            </a>-->
-<!--                        </li>-->
-<!--                        <li>-->
-<!--                            <a class="aa" href="--><?//= bloginfo('url') ?><!--/Service-to-citizen">-->
-<!--                                --><?php //echo lang('service-to-citizen') ?>
-<!--                            </a>-->
-<!--                        </li>-->
-<!--                        <li>-->
-<!--                            <a class="aa" href="--><?//= bloginfo('url') ?><!--/Mapa">-->
-<!--                                --><?php //echo lang('map') ?>
-<!--                            </a>-->
-<!--                        </li>-->
-<!--                    </ul>-->
-<!--                </li>-->
 
                 <li class="nav-item">
                     <a class="nav-link" href="<?= bloginfo('url') ?>" title="<?= lang('home') ?>"><?= lang('home') ?></a>
@@ -167,15 +111,16 @@
                 endif;
                 ?>
                 <?php
-                                add_logout_menu();
+                add_logout_menu();
                 ?>
 
 
             </ul>
             <?php
-            if (is_page(['plataforma-de-treinamentu' ,'kona-ba-plataforma-treinamentu'])) {
+            if (is_page(['plataforma-de-treinamentu' ,'kona-ba-plataforma-treinamentu']) || is_tax('coursera-courses-category')) {
                 ?>
-                <a class="btn-getstarted btn-join-now" id="btn-login-sso" href="#!"><?= lang('join now') ?></a>
+                <a class="btn-getstarted btn-join-now" id="btn-login-sso"
+                   href="https://www.coursera.org/programs/sso-integration-testing-7mi06?authProvider=timorleste"><?= lang('join now') ?></a>
                 <?php
             }
             ?>

@@ -259,7 +259,7 @@ div[id^="leaflet-control-accordion-layers"] > label {
 
 .leaflet-popup-content {
     max-height: 75vh;
-    overflow-x: scroll;
+    /* overflow-x: scroll; */
 }
 
 
@@ -300,6 +300,17 @@ div.leaflet-ruler {
 
 .leaflet-legend-control ul ul {
     margin-left: 15px;
+}
+
+.leaflet-popup-content .popup-heading{
+    font-weight: 600;
+    text-transform: capitalize;
+}
+.leaflet-popup-content .collection .collection-item{
+    padding: 3px;
+}
+.leaflet-popup-content .collection, .leaflet-popup-content .collection .collection-item{
+    border: none;
 }
 
 #legend-info {
@@ -382,7 +393,7 @@ div.leaflet-ruler {
 
 
 .slide-show-details {
-    width: 50% !important;
+    width: 25% !important;
     padding: 25px;
 }
 

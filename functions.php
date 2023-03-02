@@ -15,6 +15,8 @@ $is_faq_enabled = get_option('setting_settings_general')['setting_enable_faq'];
 //$is_library_enabled = get_option('setting_settings_general')['setting_enable_library'];
 
 
+require_once(dirname(__FILE__) . '/functions/cpt/municipality_cpt.php');
+require_once(dirname(__FILE__) . '/functions/cpt/courses_cpt.php');
 
 if ($is_faq_enabled) {
     require_once(dirname(__FILE__) . '/functions/cpt/faq_cpt.php');
@@ -26,7 +28,7 @@ require_once(dirname(__FILE__) . '/functions/coursera_user_ajax.php');
 
 //
 //if ($is_library_enabled) {
-//    require_once(dirname(__FILE__) . '/functions/cpt/library_cpt.php');
+//    require_once(dirname(__FILE__) . '/functions/cpt/courses_cpt.php');
 //}
 
 //add_new_user_role();
@@ -35,7 +37,7 @@ function register_menu()
 {
     register_nav_menus(
         array(
-//            'menu-principal' => __('Menu principal', 'municipality'),
+            'menu-principal-quick-links' => __('Quick links', 'municipality'),
             'menu-training-platform-external' => __('Training platform external links', 'municipality'),
             'menu-training-platform-legal' => __('Training platform legal links', 'municipality'),
         )
@@ -71,6 +73,15 @@ function get_menu_by_name($name)
 }
 
 
+function get_menu_quick_links()
+{
+    wp_nav_menu(array(
+            'theme_location' => 'menu-principal-quick-links',
+            'container' => false,
+            'menu_class' => 'menu-training-platform-external list-unstyled mb-0',
+        )
+    );
+}
 function get_menu_training_platform_external_links()
 {
     wp_nav_menu(array(
@@ -544,7 +555,7 @@ function add_logout_menu($redirect = '')
                 if (current_user_can('administrator')) {
                     ?>
                     <li>
-                        <a class="aa text-capitalize" href="<?php echo home_url(); ?>/wp-admin">
+                        <a class="aa text-capitalize" href="/wp-admin">
                             Admin <span class="fa fa-dashboard"></span>
                         </a>
                     </li>
@@ -632,7 +643,7 @@ function add_button_get_started()
 {
 //    if (!is_user_logged_in()) {
     ?>
-    <a href="#!" class="btn-join-now animated fadeInUp"><?= lang('join now') ?></a>
+    <a href="https://www.coursera.org/programs/sso-integration-testing-7mi06?authProvider=timorleste" class="btn-join-now animated fadeInUp"><?= lang('join now') ?></a>
     <?php
 //    }
 }
@@ -659,6 +670,29 @@ function get_faq($category = 'portal')
 
 
 }
+function getCourses($category = 'business',$post_per_page=null)
+{
+    if($post_per_page){
+        $args = array(
+            'post_type' => array('coursera-courses'),
+            'nopaging' => false,
+            'posts_per_page' => $post_per_page,
+            'post_status' => 'publish',
+        );
+    }else{
+        $args = array(
+            'post_type' => array('coursera-courses'),
+            'nopaging' => true,
+            'post_status' => 'publish',
+        );
+    }
+
+
+    return new WP_Query($args);
+
+
+}
+
 
 function is_plugin_simple_download_manager_active()
 {
@@ -670,6 +704,5 @@ function is_plugin_simple_download_manager_active()
     }
     return false;
 }
-
 
 

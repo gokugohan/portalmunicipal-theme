@@ -1,6 +1,7 @@
 $(window).resize(function () {
     sizeLayerControl();
 });
+
 let external_layer = "External Layer";
 let internal_layer = "Internal Layer";
 
@@ -237,33 +238,91 @@ function loadCSV(url, filename) {
     $.get(url, function (csvString) {
 
         // Use PapaParse to convert string to array of objects
-        let data = Papa.parse(csvString, {header: true, dynamicTyping: true}).data;
+        let data = Papa.parse(
+            csvString, {
+                header: true,
+                dynamicTyping: true,
+                complete:function(response){
+                    console.log(response);
+                    // For each row in data, create a marker and add it to the map
+                    // For each row, columns `lat`, `lon` are required
+                    let markers = L.markerClusterGroup();
+                    let html="";
+                    $.each(response.data,function(i,v){
+                        let row = v;
 
-        // For each row in data, create a marker and add it to the map
-        // For each row, columns `Latitude`, `Longitude`, and `Title` are required
-        let markers = L.markerClusterGroup();
+                        let latitude = row.lat;
+                        let longitude = row.lon;
 
-        for (let i in data) {
-            let row = data[i];
+                        html ='<ul class="collection">';
 
-            // console.log(row.Latitude, row.Longitude);
-            let latitude = row.Latitude;
-            let longitude = row.Longitude;
-            let marker = L.marker([latitude, longitude], {
-                opacity: 1
-            }).bindPopup(row.Title);
+                        $.each(response.meta['fields'], function(i) {
+                            let item = response.meta['fields'][i];
+                            console.log(item+': ' + row[item]);
+                            html +="<li class='collection-item'><span class='popup-heading'>"+item + "</span>: " + row[item]+"</li>";
+                        });
+                        html +="</ul>";
 
-            markers.addLayer(marker);
+                        if(row.lat !==undefined && row.lon !==undefined){
+                            let marker = L.marker([latitude, longitude], {
+                                opacity: 1
+                            }).bindPopup(html);
+                            marker.on('mouseover',function(ev) {
+                                marker.openPopup();
+                            });
+                            marker.on('mouseout',function(ev) {
+                                marker.closePopup();
+                            });
+                            markers.addLayer(marker);
+                        }else{
+                            console.log("lat:undefined, long:undefined");
+                        }
+                    });
 
-        }
+                    markers.addTo(map);
+                    layerControl.addOverlay(markers, filename, external_layer);
+                    M.toast({
+                        html: 'File Added',
+                        className: 'rounded green accent-3'
+                    });
+                    map.spin(false);
 
-        markers.addTo(map);
-        layerControl.addOverlay(markers, filename, external_layer);
-        M.toast({
-            html: 'File Added',
-            className: 'rounded green accent-3'
-        });
-        map.spin(false);
+                }
+            });
+        // }).data;
+
+        // // For each row in data, create a marker and add it to the map
+        // // For each row, columns `lat`, `lon`, and `title` are required
+        // let markers = L.markerClusterGroup();
+
+        // for (let i in data) {
+        //     let row = data[i];
+
+        //     // console.log(row.Latitude, row.Longitude);
+        //     let latitude = row.lat;
+        //     let longitude = row.lon;
+
+
+        //     if(row.lat !==undefined && row.lon !==undefined){
+        //         let marker = L.marker([latitude, longitude], {
+        //             opacity: 1
+        //         }).bindPopup(row.title);
+
+        //         markers.addLayer(marker);
+        //     }else{
+        //         console.log("lat:undefined, long:undefined");
+        //     }
+
+
+        // }
+
+        // markers.addTo(map);
+        // layerControl.addOverlay(markers, filename, external_layer);
+        // M.toast({
+        //     html: 'File Added',
+        //     className: 'rounded green accent-3'
+        // });
+        // map.spin(false);
     });
 
 } //loadCSV
@@ -481,11 +540,12 @@ $("body").on("change", ".checkbox-load-data", function () {
 });
 
 
-get_external_default_maps();
+// get_external_default_maps();
 
 function get_external_default_maps() {
     $.ajax({
         url: base_url + 'datasearch/gis/default-maps',
+        //url: 'http://datasearch.test/gis/default-maps',
         type: 'get',
         success: function (response) {
             // console.log(response);
@@ -502,8 +562,54 @@ function get_external_default_maps() {
             $("#list-of-default-maps").html(html);
         }
     });
+
 }//get_external_default_maps
 
+loadDefaultUploadedMaps();
+
+function loadDefaultUploadedMaps() {
+    $.ajax({
+        url: base_url + 'datasearch/gis/default-maps',
+        //url: 'http://datasearch.test/gis/default-maps',
+        type: 'get',
+        success: function (response) {
+            // console.log(response);
+            let html = '';
+            let total = response.length;
+
+            for (let i = 0; i < total; i++) {
+                let item = response[i];
+                let title = item.title + " (" + item.source + ")";
+                if (item.type === GEOJSON) {
+                    showPreLoader();
+                    $.getJSON(item.attachment, function (data) {
+                        var data = loadUploadedGeoJsonFile(data, title, external_layer, true, false);
+                    });
+                } else if (item.type === PNG) {
+                    showPreLoader();
+                    var imageUrl = item.attachment,
+                        imageBounds = [[-9.504785583554632, 124.04464721700003], [-8.126870154380823, 127.34226226826918]];
+                    let tiffImageLayer = L.imageOverlay(imageUrl, imageBounds);
+
+                    //tiffImageLayer.addTo(map);
+                    layerControl.addOverlay(tiffImageLayer, title, external_layer);
+
+                    $("#container-external-layer").removeClass('display-container-external-layer');
+                    $("#container-external-layer").addClass('hide');
+
+                    tiffImageLayer.on('load', function () {
+                        hidePreLoader();
+                    });
+
+                } else {
+
+                }
+            }
+
+            $("#list-of-default-maps").html(html);
+        }
+    });
+}// loadDefaultUploadedMaps
 
 function centerMap(e) {
     map.panTo(e.latlng);
@@ -522,20 +628,19 @@ var mapBoxOSM = L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}
     maxZoom: 20,
     id: 'mapbox/streets-v11',
     accessToken: 'pk.eyJ1IjoiaG1lbmV6ZXMiLCJhIjoiY2prYzdmcWozMDFmNzNwbzZkMWptZ3ptNSJ9.e-iIExHcob-nAATM_CFAEQ',
-    attribution: 'OSM - Timor-Leste Portal Municipal &copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
+    attribution: 'OSM - Portal Municipal plataforma de dados para o desenvolvimento de Timor-Leste &copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
 });
 
 var mapBoxSatellite = L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
-    attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
     maxZoom: 20,
     id: 'mapbox/satellite-streets-v11',
     accessToken: 'pk.eyJ1IjoiaG1lbmV6ZXMiLCJhIjoiY2prYzdmcWozMDFmNzNwbzZkMWptZ3ptNSJ9.e-iIExHcob-nAATM_CFAEQ',
-    attribution: 'Satellite - Timor-Leste Portal Municipal &copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
+    attribution: 'Satellite - Portal Municipal plataforma de dados para o desenvolvimento de Timor-Leste &copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
 });
 
 
 let imagery = L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
-    attribution: 'Timor-Leste Portal Municipal &copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
+    attribution: 'Imagery - Portal Municipal plataforma de dados para o desenvolvimento de Timor-Leste &copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
     maxZoom: 15,
     id: "mapbox.satellite",
     accessToken: 'pk.eyJ1IjoiaG1lbmV6ZXMiLCJhIjoiY2prYzdmcWozMDFmNzNwbzZkMWptZ3ptNSJ9.e-iIExHcob-nAATM_CFAEQ'
@@ -572,18 +677,19 @@ var baseLayers = {
 
 
 // styleControlLayer = L.Control.styledLayerControl(baseMaps);
-var pointOfInterestLayer = L.geoJson(null);
+// var pointOfInterestLayer = L.geoJson(null);
 // var municipalityLayer = L.geoJson(null);
-var projectLayer = L.geoJson(null);
+// var projectLayer = L.geoJson(null);
 
 var groupedOverlays = {
     "Internal Layer": {
-        "Projects": projectLayer,
-        "Point of interests": pointOfInterestLayer,
+        // "Projects": projectLayer,
+        // "Point of interests": pointOfInterestLayer,
     }
 };
 
 var asset_location_url = $("#asset_location_url").val();
+/*
 var pointOfInterestLayerItem = L.geoJson(null, {
     pointToLayer: function (feature, latlng) {
         let icon = new L.icon({
@@ -756,11 +862,12 @@ var projectLayerItem = L.geoJson(null, {
             project_list += info_panel_item;
 
             layer.bindTooltip(html, {
-                closeButton: false, offset: L.point(0, -20),
+                closeButton: false,
+                offset: L.point(0, -20),
                 direction: 'right',
                 permanent: false,
                 sticky: true,
-                offset: [10, 0],
+                // offset: [10, 0],
                 opacity: 0.75,
                 className: 'leaflet-tooltip'
             });
@@ -807,15 +914,17 @@ var projectLayerItem = L.geoJson(null, {
 
     }
 });
+*/
 
+//Get all point of intereset of every municipalities (using datamanager, we will move all these to each municipality portal)
+// getAllPointOfInterests("");
 
-getAllPointOfInterests("");
-
-getAllProjects("");
+//Get all project of every municipalities (using datamanager, we will move all these to each municipality portal)
+// getAllProjects("");
 
 getMap(2, "Municipality", true);
-getMap(4, "Suco");
-getMap(3, "Administrative Post");
+//getMap(4, "Suco");
+//getMap(3, "Administrative Post");
 
 //
 // console.log('LAYERS');
@@ -826,7 +935,7 @@ getMap(3, "Administrative Post");
 // console.log('LAYERS');
 
 function getMap(level, title, display = false) {
-
+    //renderMunicipalityData();
     switch (level) {
         case 1:
         case 2:
@@ -839,8 +948,8 @@ function getMap(level, title, display = false) {
             $("#searchbox").css('display', "block");
             break;
         case 6:
-            getAllPointOfInterests(title);
-            $("#searchbox").css('display', "block");
+            // getAllPointOfInterests(title);
+            // $("#searchbox").css('display', "block");
             break;
         default:
             M.toast({html: title + " Not found!", className: 'rounded red accent-3'});
@@ -931,7 +1040,7 @@ function getSoilPH(title) {
         $("#container-external-layer").addClass('hide');
     });
 }
-
+/*
 function getAllPointOfInterests(title) {
     $.getJSON(point_of_interest_link, function (data) {
         totalPOI = data.total;
@@ -961,9 +1070,9 @@ function getAllProjects(title) {
 
     });
 }
+*/
 
-
-var layerControl = L.control.groupedLayers(baseLayers, groupedOverlays, {collapsed: false}).addTo(map);
+var layerControl = L.control.groupedLayers(baseLayers, groupedOverlays, {collapsed: true}).addTo(map);
 
 
 /** Add control */
@@ -974,7 +1083,7 @@ addMeasureControl();
 
 addRulerControl();
 
-L.control.scale({position: "topright"}).addTo(this.map);
+L.control.scale({position: "bottomleft"}).addTo(this.map);
 
 
 map.addControl(this.createInputButton(
@@ -990,31 +1099,38 @@ map.addControl(this.createInputButton(
     'View Dashboard'));
 */
 let asset_url = $("#asset_url").val();
-map.addControl(this.createInputButton(
-    'bottomright',
-    'sponsor-img',
-    '<img League = "' + asset_url + '/assets/img/RDLT.png" class="responsive-img"> ',
-    'República Democrática de Timor-Leste',
-    'http://timor-leste.gov.tl/?lang=en'));
-map.addControl(this.createInputButton(
-    'bottomright',
-    'sponsor-img',
-    '<img League = "' + asset_url + '/assets/img/logo-map.svg" class="responsive-img">',
-    'Ministério da Administração Estatal',
-    '/'));
 
 map.addControl(this.createInputButton(
     'bottomright',
     'sponsor-img',
-    '<img League = "' + asset_url + '/assets/img/undp-logo.svg" class="responsive-img">',
+    '<img src = "' + asset_url + '/assets/img/LOGO_TIC_OFFICIAL.jpg" class="responsive-img">',
+    'TIC Timor | Agência de Tecnologias de Informação e Comunicação IP',
+    'https://europa.eu/'));
+map.addControl(this.createInputButton(
+    'bottomright',
+    'sponsor-img',
+    '<img src = "' + asset_url + '/assets/img/european-union-logo.png" class="responsive-img">',
+    'European Union | Empowered lives. Resilient Nations',
+    'https://europa.eu/'));
+
+map.addControl(this.createInputButton(
+    'bottomright',
+    'sponsor-img',
+    '<img src = "' + asset_url + '/assets/img/undp-logo.svg" class="responsive-img">',
     'United Nation Development Program',
     'http://undp.org/'));
 map.addControl(this.createInputButton(
     'bottomright',
     'sponsor-img',
-    '<img League = "' + asset_url + '/assets/img/european-union-logo.png" class="responsive-img">',
-    'European Union | Empowered lives. Resilient Nations',
-    'https://europa.eu/'));
+    '<img src = "' + asset_url + '/assets/img/logo-map.svg" class="responsive-img">',
+    'Ministério da Administração Estatal',
+    '/'));
+map.addControl(this.createInputButton(
+    'bottomright',
+    'sponsor-img',
+    '<img src = "' + asset_url + '/assets/img/RDLT.png" class="responsive-img"> ',
+    'República Democrática de Timor-Leste',
+    'http://timor-leste.gov.tl/?lang=en'));
 
 var customActionToPrint = function (context, mode) {
     return function () {
@@ -1121,6 +1237,51 @@ function addTotallegendControl(dimensions, callback, is_population_lg = true) {
 /** End add control */
 
 
+function renderMunicipalityData(){
+    $.getJSON(api_url + 'maps/2/geojson', function (response) {
+        //http://datasearch.test/tldp/en/api/dashboardapi/get-flip-rank-data/3/none/mrd/TLS003/1
+
+        let listData = [];
+
+        $.ajax({
+            // ius, ref ius, time period, area code, sub-sector
+            url:'http://datasearch.test/tldp/en/api/dashboardapi/get-flip-rank-data/3/none/mrd/TLS003/1',
+            type:'get',
+            success:function(res){
+                renderMunicipalityDataGeoJson(response,res.data);
+                $.each(res.data,function(i,v){
+                    console.log(v);
+                    // listData[v]
+                })
+            }
+        });
+
+    });
+    
+}//renderMunicipalityData
+
+
+function renderMunicipalityDataGeoJson(response,listData){
+    console.log(listData);
+    let geoJson = L.geoJson(response,{
+        onEachFeature:function(feature,layer){
+            let properties = feature.properties;
+            console.log(properties);
+            layer.bindTooltip('Hello world', {
+                closeButton: false,
+                // offset: L.point(0, -20),
+                direction: 'right',
+                permanent: false,
+                sticky: true,
+                offset: [10, 0],
+                opacity: 1,
+                className: 'leaflet-tooltip'
+            });
+        }
+    });
+    geoJson.addTo(map);
+}//renderMunicipalityDataExtra
+
 let areaGeojson;
 let totalAreaOfTimorLeste = 0;
 let total_population = 0;
@@ -1139,7 +1300,7 @@ function loadMapGeoJson(data, filename, groupName, level = 0, fitZoom = true, di
                 if (feature.properties.POPULATION !== undefined) {
                     return {
                         fillColor: getPopulationDensityColor(feature.properties.POPULATION.total_population),
-                        weight: 1,
+                        weight: 2,
                         opacity: 1,
                         color: 'white',
                         dashArray: '3',
@@ -1168,11 +1329,11 @@ function loadMapGeoJson(data, filename, groupName, level = 0, fitZoom = true, di
             }
 
             totalAreaOfTimorLeste += parseFloat(total_area);
-
+            /*
             layer.on('mouseover', function (e) {
                 layer.setStyle({
-                    weight: 2,
-                    fillOpacity: 0.1
+                    weight: 3,
+                    // fillOpacity: 0.1
                 });
 
                 if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
@@ -1184,7 +1345,9 @@ function loadMapGeoJson(data, filename, groupName, level = 0, fitZoom = true, di
                 areaGeojson.resetStyle(e.target);
                 //info.update();
             });
+            */
 
+            let info_panel_item ='';
 
             if (feature.properties) {
                 var popupText = 'geometry type: ' + feature.geometry.type;
@@ -1201,35 +1364,15 @@ function loadMapGeoJson(data, filename, groupName, level = 0, fitZoom = true, di
                     html = "<div>" +
                         feature.properties.NAME1_ +
                         "<br/>Area: " + total_area_text +
-                        "<br/>Population: " + numberWithPoint(population.total_population) + " (" + population.source + " " + population.time_period + ")" +
-                        "<br/>Project: " + feature.properties.PROJECTS + "</div>";
+                        "<br/>Population: " + numberWithPoint(population.total_population) + " (" + population.source + " " + population.time_period + ")";
+                         //+ "<br/>Project: " + feature.properties.PROJECTS + "</div>";
 
                     total_population += parseFloat(population.total_population);
-
-                    // layer.bindContextMenu({
-                    //     contextmenu: true,
-                    //     contextmenuInheritItems: false,
-                    //     contextmenuItems: [
-                    //         {
-                    //             text: 'Projects', callback: (() => {
-                    //                 viewAreaProjects(feature);
-                    //             })
-                    //         },
-                    //
-                    //         {separator: true},
-                    //         {
-                    //             text: 'Point of interests', callback: (() => {
-                    //                 viewPointOfInterests(feature);
-                    //             })
-                    //         },
-                    //     ]
-                    // });
-
                     info_panel_item = '<li class="collection-item hoverable">';
                     info_panel_item += '<a href="#!" class="secondary-content  coordenate-point-item-area-municipality " data-lat="' + centerLayer.lat + '" ' +
                         'data-lng="' + centerLayer.lng + '"><i class="material-icons">location_on</i></a>';
                     info_panel_item += '<span class="title">' + feature.properties.NAME1_ + total_area_text + '</span>';
-                    info_panel_item += "<p>(" + (feature.properties.PROJECTS > 1 ? feature.properties.PROJECTS + " Projects" : feature.properties.PROJECTS + " Project") + ")</p>";
+                    //info_panel_item += "<p>(" + (feature.properties.PROJECTS > 1 ? feature.properties.PROJECTS + " Projects" : feature.properties.PROJECTS + " Project") + ")</p>";
 
                     info_panel_item += '</li>';
 
@@ -1269,7 +1412,8 @@ function loadMapGeoJson(data, filename, groupName, level = 0, fitZoom = true, di
                 }
 
                 layer.bindTooltip(html, {
-                    closeButton: false, offset: L.point(0, -20),
+                    closeButton: false,
+                    // offset: L.point(0, -20),
                     direction: 'right',
                     permanent: false,
                     sticky: true,
@@ -1359,7 +1503,7 @@ function loadMapGeoJson(data, filename, groupName, level = 0, fitZoom = true, di
 }// loadMapGeoJson
 
 //loadUploadedGeoJsonFile(data, layerName, external_layer);
-function loadUploadedGeoJsonFile(data, layerName, groupName, level = 0, fitZoom = true) {
+function loadUploadedGeoJsonFile(data, layerName, groupName, level = 0, fitZoom = true, addToMap = true) {
 
     //var itemName = data.name == undefined ? filename.split('.')[0] : data.name;
     var geojsonPointMarkerClusters = L.markerClusterGroup({
@@ -1393,7 +1537,8 @@ function loadUploadedGeoJsonFile(data, layerName, groupName, level = 0, fitZoom 
                     fillOpacity: 0.35
                 };
             } else {
-                return {color: "#960707"};
+                // return {color: "#960707"};
+                return {color: getRandomColor()};
             }
         },
 
@@ -1521,11 +1666,13 @@ function loadUploadedGeoJsonFile(data, layerName, groupName, level = 0, fitZoom 
 
     // geoJsonFileResult.addTo(map);
 
-    if (geometry_type == "Point") {
-        geojsonPointMarkerClusters.addLayer(geoJsonFileResult);
-        geojsonPointMarkerClusters.addTo(map);
-    } else {
-        geoJsonFileResult.addTo(map);
+    // Add to map
+    //if (geometry_type == "Point") {
+    geojsonPointMarkerClusters.addLayer(geoJsonFileResult);
+    //}
+
+    if (addToMap) {
+        //    geoJsonFileResult.addTo(map);
     }
 
     geoJsonFileResult.StyledLayerControl = {
@@ -1935,8 +2082,7 @@ map.on("mouseover", function (e) {
 /* Layer control listeners that allow for a single markerClusters layer */
 map.on("overlayadd", function (e) {
 
-    // console.log(e.name);
-    if (e.layer === pointOfInterestLayer) {
+    /*if (e.layer === pointOfInterestLayer) {
         markerClusters.addLayer(pointOfInterestLayerItem);
         $(".info-panel").show();
         $(".info-list").hide();
@@ -1955,9 +2101,10 @@ map.on("overlayadd", function (e) {
         if (totalProject > 1) {
             map.flyToBounds(projectLayerItem.getBounds());
         }
-    }
+    }*/
+
     if (e.name === "Municipality") {
-        $(".info-panel").show();
+       $(".info-panel").show();
         $(".info-list").hide();
         $(".info-list").html(area_municipality_list);
 
@@ -1971,7 +2118,6 @@ map.on("overlayadd", function (e) {
             className: 'rounded green accent-3'
         });
 
-        // $(".total_population_legend").html("Total Population <br>(" + numberWithPoint($("#total_population").val()) + ")");
         $(".total_population_legend").html("Total Population <br>(" + numberWithPoint(total_population) + ")");
     } else if (e.name === "Administrative Post" || e.name == 'Posto administrativos' || e.name == 'Postu administrativu') {
         $(".info-panel").show();
@@ -1984,7 +2130,6 @@ map.on("overlayadd", function (e) {
             className: 'rounded green accent-3'
         });
 
-        // $(".total_population_legend").html("Total Population <br>(" + numberWithPoint($("#total_population").val()) + ")");
         $(".total_population_legend").html("Total Population <br>(" + numberWithPoint(total_population) + ")");
     } else if (e.name === "Suco" || e.name == 'Suku') {
         $(".info-panel").show();
@@ -2005,12 +2150,13 @@ map.on("overlayadd", function (e) {
 
 map.on("overlayremove", function (e) {
 
-    if (e.layer === pointOfInterestLayer) {
-        markerClusters.removeLayer(pointOfInterestLayerItem);
-    } else if (e.layer === projectLayer) {
-        markerClusters.removeLayer(projectLayerItem);
-    } else if ((e.name === "Municipality") | (e.name === "Administrative Post") | (e.name === "Suco")) {
+    // if (e.layer === pointOfInterestLayer) {
+    //     // markerClusters.removeLayer(pointOfInterestLayerItem);
+    // } else if (e.layer === projectLayer) {
+    //     // markerClusters.removeLayer(projectLayerItem);
+    // } else
 
+    if ((e.name === "Municipality") | (e.name === "Administrative Post") | (e.name === "Suco")) {
         this.removeControl(population_legendControl);
 
     } else {
@@ -2151,6 +2297,7 @@ get_gis_institutions();
 function get_gis_institutions() {
     $.ajax({
         url: base_url + 'datasearch/gis/institutions',
+        //url: 'http://datasearch.test/gis/institutions',
         type: 'get',
         success: function (response) {
             // console.log(response);
@@ -2175,6 +2322,7 @@ $("#select-institution").on("change", function () {
     let html = '';
     $.ajax({
         url: base_url + 'datasearch/gis/institutions/' + selected_option,
+        //url: 'http://datasearch.test/gis/institutions/' + selected_option,
         type: 'get',
         success: function (response) {
             html = get_mapservice_layers(response);
@@ -2359,6 +2507,24 @@ dropbox.addEventListener("drop", function (e) {
 dropbox.addEventListener("dragleave", function () {
     map.scrollWheelZoom.enable();
 }, false);
+//getMunicipalityProjects();
+function getMunicipalityProjects(municipality=null){
+    //https://[municipality].gov.tl/wp-admin/admin-ajax.php
+    if(municipality!=null){
+        $.ajax({
+            url: 'http://portalmunicipal.baucau.test/wp-admin/admin-ajax.php',
+            type: 'post',
+            crossDomain: true,
+            data: {action: 'fetch_projects'},
+            success: function (response) {
+                console.log(response);
+            }
+        });
+    }
+
+} //getMunicipalityProjects
+
+
 
 // Create & add WMS-layer.
 // var tasmania = new L.TileLayer.WMS('https://webgis.ipg.tl/arcgis/services/vector/Administrasaun_Timor_Leste/MapServer/WmsServer', {

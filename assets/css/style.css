@@ -1798,7 +1798,7 @@ span.library {
     }
 
     .header_logo {
-        height: 90px !important;
+        /*height: 90px !important;*/
     }
 
     .new-menu3 > li.nav-item {

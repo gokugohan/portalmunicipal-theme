@@ -50,7 +50,7 @@ get_header();
 
 <section id="hero" class="d-flex align-items-center justify-content-center">
     <div class="container-fluid my-5">
-        <div class="row justify-content-center hero-title">
+        <div class="row justify-content-center hero-title my-3">
             <div class="col-md-12 text-center">
                 <a class="navbar-brand " href="<?php echo bloginfo('url'); ?>">
                     <?php

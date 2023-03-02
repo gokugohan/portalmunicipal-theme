@@ -6,101 +6,20 @@
 ?>
 <?php get_header(); ?>
 <?php
-$about_education_video_url_id = (get_theme_mod('municipality_education_platform_hero_video_url'));
-$attr = array(
-    'League' => wp_get_attachment_url($about_education_video_url_id)
-);
-$about_education_video_url = ($attr['League']);
-if ($about_education_video_url == false || strlen($about_education_video_url) == 0) {
-    $about_education_video_url = "https://www.youtube.com/watch?v=4Jcl_fmoxDI";
-}
 
 ?>
 
     <main id="main-window">
         <!-- ======= Hero Section ======= -->
-        <section id="hero" class="d-flex justify-content-center align-items-center">
-            <div class="container position-relative text-lg-start">
-                <div class="row">
-                    <div class="col-lg-8">
+        <?php
+        include('hero_training_platform_01.php');
+        //        if ($about_education_video_url == false || strlen($about_education_video_url) == 0) {
+        //            include ('hero_training_platform_02.php');
+        //        }else{
+        //            include ('hero_training_platform_01.php');
+        //        }
 
-                        <h1 class="wow fadeInUp"><?= htmlspecialchars_decode(filter_text_wpglobus(get_theme_mod('municipality_education_platform_hero_title'))) ?></h1>
-
-
-                        <!-- Bootstrap carousel-->
-                        <div class="carousel slide" id="carouselExampleIndicators" data-ride="carousel">
-                            <!-- Bootstrap carousel indicators [nav] -->
-                            <ol class="carousel-indicators mb-0">
-                                <li class="active" data-target="#carouselExampleIndicators" data-slide-to="0"></li>
-                                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-                            </ol>
-
-
-                            <!-- Bootstrap inner [slides]-->
-                            <div class="carousel-inner pb-4">
-                                <!-- Carousel slide-->
-                                <div class="carousel-item active">
-                                    <div class="media">
-                                        <div class="media-body">
-                                            <blockquote class="blockquote border-0 p-0">
-                                                <p class="font-italic lead">
-                                                    <?= htmlspecialchars_decode(filter_text_wpglobus(get_theme_mod('municipality_education_platform_hero_description3'))) ?>
-                                                </p>
-
-                                            </blockquote>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Carousel slide-->
-                                <div class="carousel-item">
-                                    <div class="media">
-                                        <div class="media-body">
-                                            <blockquote class="blockquote border-0 p-0">
-                                                <p class="font-italic lead">
-                                                    <?= htmlspecialchars_decode(filter_text_wpglobus(get_theme_mod('municipality_education_platform_hero_description2'))) ?>
-                                            </blockquote>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Carousel slide-->
-                                <div class="carousel-item">
-                                    <div class="media">
-                                        <div class="media-body">
-                                            <blockquote class="blockquote border-0 p-0">
-                                                <p class="font-italic lead">
-                                                    <?= htmlspecialchars_decode(filter_text_wpglobus(get_theme_mod('municipality_education_platform_hero_description'))) ?>
-                                            </blockquote>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-
-                        <div class="btns d-flex wow fadeInUp">
-                            <?php
-                            add_button_get_started();
-                            ?>
-                            <!--                        <a href="-->
-
-                            <!--                        <a href="-->
-                            <?//= $video_url ?><!--" class="glightbox btn-watch-video d-flex align-items-center">-->
-                            <!--                            <i class="fa fa-play"></i> <span class="pl-2"> Watch Video</span>-->
-                            <!--                        </a>-->
-                        </div>
-
-                    </div>
-                    <div class="col-lg-4 d-flex align-items-center justify-content-center position-relative wow fadeInUp">
-                        <a href=" <?= $about_education_video_url ?>" class="glightbox play-btn"></a>
-                    </div>
-
-                </div>
-            </div>
-
-        </section>
+        ?>
         <!-- End Hero -->
 
 
@@ -150,6 +69,7 @@ if ($about_education_video_url == false || strlen($about_education_video_url) ==
             </div>
         </div>
 
+
         <!-- ======= About Section ======= -->
         <section id="about" class="about bg-white">
             <div class="container" data-aos="fade-up">
@@ -186,6 +106,7 @@ if ($about_education_video_url == false || strlen($about_education_video_url) ==
                         </div>
 
                         <div class="col-xl-7 content">
+
                             <p class="mb-4 text-justify lead">
                                 <?= htmlspecialchars_decode(filter_text_wpglobus(get_theme_mod('municipality_education_platform_about_description'))) ?>
 
@@ -214,6 +135,7 @@ if ($about_education_video_url == false || strlen($about_education_video_url) ==
                 </div>
             </div>
         </section><!-- End About Section -->
+
 
         <div class="py-5 bg-light cta" style="background-image:url(<?= $about_image ?>)">
             <div class="container py-3">
@@ -303,6 +225,7 @@ if ($about_education_video_url == false || strlen($about_education_video_url) ==
             </div>
         </section><!-- End Why Us Section -->
 
+
         <!-- ======= Popular Courses Section ======= -->
         <section id="popular-courses" class="courses">
             <div class="container" data-aos="fade-up">
@@ -312,501 +235,85 @@ if ($about_education_video_url == false || strlen($about_education_video_url) ==
                     <p><?= lang("Let's Work Together To Help You Achieve Your Goals Today!") ?></p>
 
                 </div>
+                <div id="category-courses-carousel" class="carousel slide" data-ride="carousel">
 
-                <style>
+                    <div class="carousel-inner row w-100 mx-auto">
+                        <?php
+                        $course_category_args = array(
+                            'taxonomy' => 'courses-category',
+                            'orderby' => 'name',
+                            'order' => 'ASC',
+                            "hide_empty" => 0,
+                        );
 
-                    /* Rounded tabs */
+                        $categories = get_categories($course_category_args);
 
-                    @media (min-width: 576px) {
-                        .rounded-nav {
-                            border-radius: 50rem !important;
+                        $category_counter = 0;
+                        foreach ($categories as $cate) {
+                            if ($category_counter == 0) {
+                                ?>
+                                <!-- Course Block -->
+                                <div class="course-block carousel-item col-12 col-sm-6 col-md-4 col-lg-3 active">
+                                    <div class="inner-box">
+                                        <div class="icon bi bi-book-half"></div>
+                                        <h4><a href="<?php echo esc_url(get_term_link($cate->term_id)) ?>"
+                                               title="<?php echo esc_html($cate->cat_name) ?>"><?php echo esc_html($cate->cat_name) ?></a>
+                                        </h4>
+                                        <div class="courses"><?= $cate->count > 1 ? $cate->count . ' courses' : $cate->count. ' course'; ?></div>
+                                        <a class="arrow bi bi-arrow-right"
+                                           title="<?= esc_html($cate->cat_name) ?>"
+                                           href="<?php echo esc_url(get_term_link($cate->term_id)) ?>"></a>
+                                    </div>
+                                </div>
+
+                                <?php
+                            } else {
+                                ?>
+                                <!-- Course Block -->
+                                <div class="course-block carousel-item col-12 col-sm-6 col-md-4 col-lg-3">
+                                    <div class="inner-box">
+                                        <div class="icon bi bi-book-half"></div>
+                                        <h4><a href="<?php echo esc_url(get_term_link($cate->term_id)) ?>"
+                                               title="<?php echo esc_html($cate->cat_name) ?>"><?php echo esc_html($cate->cat_name) ?></a>
+                                        </h4>
+                                        <div class="courses"><?= $cate->count > 1 ? $cate->count . ' courses' : $cate->count.' course'; ?></div>
+                                        <a class="arrow bi bi-arrow-right"
+                                           title="<?= esc_html($cate->cat_name) ?>"
+                                           href="<?php echo esc_url(get_term_link($cate->term_id)) ?>"></a>
+                                    </div>
+                                </div>
+
+                                <?php
+                            }
+
+                            $category_counter++;
                         }
-                    }
+                        ?>
 
-                    @media (min-width: 576px) {
-                        .rounded-nav .nav-link {
-                            border-radius: 50rem !important;
-                        }
-                    }
+                    </div>
+                    <a class="carousel-control-prev" href="#category-courses-carousel" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#category-courses-carousel" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
 
-                    /* With arrow tabs */
-
-                    .with-arrow .nav-link.active {
-                        position: relative;
-                    }
-
-                    .with-arrow .nav-link.active::after {
-                        content: '';
-                        border-left: 6px solid transparent;
-                        border-right: 6px solid transparent;
-                        border-top: 6px solid #960807;
-                        position: absolute;
-                        bottom: -6px;
-                        left: 50%;
-                        transform: translateX(-50%);
-                        display: block;
-                    }
-
-                    /* lined tabs */
-
-                    #courses-tab li.nav-item:hover a.nav-link {
-                        color: #fff !important;
-                    }
-
-                    .lined .nav-link {
-                        border: none;
-                        border-bottom: 3px solid transparent;
-                    }
-
-                    .lined .nav-link:hover {
-                        border: none;
-                        border-bottom: 3px solid transparent;
-
-                    }
-
-                    .lined .nav-link.active {
-                        background: none;
-                        color: #555;
-                        border-color: #960807;
-                    }
-                </style>
-
-
-                <div class="py-5 bg-light rounded shadow  wow bounceInUp">
+                <div class="row">
 
                     <?php
 
-//                    getNewAccessTokenUsingOAuth2(get_general_setting('setting_api_coursera_access_code'));
-                    echo "<hr>";
+                    //                    getNewAccessTokenUsingOAuth2(get_general_setting('setting_api_coursera_access_code'));
+                    //                    echo "<hr>";
 
-                    getNewAccessTokenUsingCurl();
-//                    getNewAccessTokenUsingLeagueOAuth2(get_general_setting('setting_api_coursera_access_code'));
-                    echo "<hr>";
+                    //                    getNewAccessTokenUsingCurl();
+                    //                    getNewAccessTokenUsingLeagueOAuth2(get_general_setting('setting_api_coursera_access_code'));
+                    //                    echo "<hr>";
                     ?>
-                    <div class="row">
-                        <div class="col-lg-3 mb-lg-0">
-                            <!-- Lined tabs-->
-                            <ul id="courses-tab" role="tablist"
-                                class="nav nav-tabs nav-pills with-arrow lined ds-flex flex-column flex-sm-row text-left">
-                                <li class="nav-item flex-sm-fill">
-                                    <a id="data-science-tab" data-toggle="tab" href="#data-science" role="tab"
-                                       aria-controls="data-science"
-                                       aria-selected="true"
-                                       class="nav-link text-uppercase font-weight-bold mr-sm-3 rounded-0 active">DATA
-                                        SCIENCE</a>
-                                </li>
-                                <li class="nav-item flex-sm-fill">
-                                    <a id="programming-tab" data-toggle="tab" href="#programming" role="tab"
-                                       aria-controls="programming"
-                                       aria-selected="false"
-                                       class="nav-link text-uppercase font-weight-bold mr-sm-3 rounded-0">PROGRAMMING</a>
-                                </li>
-                                <li class="nav-item flex-sm-fill">
-                                    <a id="gis-tab" data-toggle="tab" href="#gis" role="tab" aria-controls="gis"
-                                       aria-selected="false" class="nav-link text-uppercase font-weight-bold rounded-0">GEOGRAPHIC
-                                        INFORMATION SYSTEM (GIS)</a>
-                                </li>
-                                <li class="nav-item flex-sm-fill">
-                                    <a id="mobile-tab" data-toggle="tab" href="#mobile" role="tab"
-                                       aria-controls="mobile"
-                                       aria-selected="false" class="nav-link text-uppercase font-weight-bold rounded-0">MOBILE</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="col-lg-9">
-                            <div id="courses-tab-content" class="tab-content">
-                                <div id="data-science" role="tabpanel" aria-labelledby="home-tab"
-                                     class="tab-pane fade px-4 show active">
-                                    <!-- Bootstrap carousel-->
-                                    <div class="carousel slide" id="carouselCourseIndicators" data-ride="carousel">
-                                        <!-- Bootstrap carousel indicators [nav] -->
-                                        <ol class="carousel-indicators mb-0">
-                                            <li class="active" data-target="#carouselCourseIndicators"
-                                                data-slide-to="0"></li>
-                                            <li data-target="#carouselCourseIndicators" data-slide-to="1"></li>
-                                            <li data-target="#carouselCourseIndicators" data-slide-to="2"></li>
-                                        </ol>
 
-                                        <!-- Bootstrap inner [slides]-->
-                                        <div class="carousel-inner px-5 pb-4">
-                                            <!-- Carousel slide-->
-                                            <div class="carousel-item active">
-                                                <div class="row">
 
-                                                    <div class="col-lg-3 col-md-6 d-flex align-items-stretch mt-4 mt-md-0 mb-md-4">
-                                                        <div class="course-item">
-                                                            <img src="https://d1rytvr7gmk1sx.cloudfront.net/wp-content/uploads/2021/10/data-science.jpg"
-                                                                 class="img-fluid" alt="...">
-                                                            <div class="course-content">
-
-                                                                <h3><a
-                                                                            href="#!"
-                                                                            data-src="http://ipg.tl/news/perfurasaun-bee-mos-iha-suco-lisadila-rfq-026ipg2022/"
-
-                                                                            class="btn-view-course-details">Introduction
-                                                                        to
-                                                                        Data Science in Python</a>
-                                                                </h3>
-
-
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-3 col-md-6 d-flex align-items-stretch mt-4 mt-md-0 mb-md-4">
-                                                        <div class="course-item">
-                                                            <img src="https://d1rytvr7gmk1sx.cloudfront.net/wp-content/uploads/2021/10/data-science.jpg"
-                                                                 class="img-fluid" alt="...">
-                                                            <div class="course-content">
-
-                                                                <h3><a href="#!" class="btn-view-course-details">Data
-                                                                        Analysis & Visualization</a>
-                                                                </h3>
-
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-3 col-md-6 d-flex align-items-stretch mt-4 mt-md-0 mb-md-4">
-                                                        <div class="course-item">
-                                                            <img src="https://d1rytvr7gmk1sx.cloudfront.net/wp-content/uploads/2021/10/data-science.jpg"
-                                                                 class="img-fluid" alt="...">
-                                                            <div class="course-content">
-
-                                                                <h3><a href="#!" class="btn-view-course-details">Python
-                                                                        Pandas: Handling & Analyzing Data</a>
-                                                                </h3>
-
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-3 col-md-6 d-flex align-items-stretch mt-4 mt-md-0 mb-md-4">
-                                                        <div class="course-item">
-                                                            <img src="https://d1rytvr7gmk1sx.cloudfront.net/wp-content/uploads/2021/10/data-science.jpg"
-                                                                 class="img-fluid" alt="...">
-                                                            <div class="course-content">
-
-                                                                <h3><a href="#!" class="btn-view-course-details">Statistic
-                                                                        with Python</a>
-                                                                </h3>
-
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-
-                                                </div>
-                                            </div>
-                                            <!-- Carousel slide-->
-                                            <div class="carousel-item">
-                                                <div class="row">
-                                                    <div class="col-lg-3 col-md-6 d-flex align-items-stretch mt-4 mt-md-0 mb-md-4">
-                                                        <div class="course-item">
-                                                            <img src="https://d1rytvr7gmk1sx.cloudfront.net/wp-content/uploads/2021/10/data-science.jpg"
-                                                                 class="img-fluid" alt="...">
-                                                            <div class="course-content">
-
-                                                                <h3><a href="#!" class="btn-view-course-details">Introduction
-                                                                        to Data Science in Python</a>
-                                                                </h3>
-
-
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-3 col-md-6 d-flex align-items-stretch mt-4 mt-md-0 mb-md-4">
-                                                        <div class="course-item">
-                                                            <img src="https://d1rytvr7gmk1sx.cloudfront.net/wp-content/uploads/2021/10/data-science.jpg"
-                                                                 class="img-fluid" alt="...">
-                                                            <div class="course-content">
-
-                                                                <h3><a href="#!" class="btn-view-course-details">Data
-                                                                        Analysis & Visualization</a>
-                                                                </h3>
-
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-3 col-md-6 d-flex align-items-stretch mt-4 mt-md-0 mb-md-4">
-                                                        <div class="course-item">
-                                                            <img src="https://d1rytvr7gmk1sx.cloudfront.net/wp-content/uploads/2021/10/data-science.jpg"
-                                                                 class="img-fluid" alt="...">
-                                                            <div class="course-content">
-
-                                                                <h3><a href="#!" class="btn-view-course-details">Python
-                                                                        Pandas: Handling & Analyzing Data</a>
-                                                                </h3>
-
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-3 col-md-6 d-flex align-items-stretch mt-4 mt-md-0 mb-md-4">
-                                                        <div class="course-item">
-                                                            <img src="https://d1rytvr7gmk1sx.cloudfront.net/wp-content/uploads/2021/10/data-science.jpg"
-                                                                 class="img-fluid" alt="...">
-                                                            <div class="course-content">
-
-                                                                <h3><a href="#!" class="btn-view-course-details">Statistic
-                                                                        with Python</a>
-                                                                </h3>
-
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <!-- Carousel slide-->
-                                            <div class="carousel-item">
-                                                <div class="row">
-                                                    <div class="col-lg-3 col-md-6 d-flex align-items-stretch mt-4 mt-md-0 mb-md-4">
-                                                        <div class="course-item">
-                                                            <img src="https://d1rytvr7gmk1sx.cloudfront.net/wp-content/uploads/2021/10/data-science.jpg"
-                                                                 class="img-fluid" alt="...">
-                                                            <div class="course-content">
-
-                                                                <h3><a href="#!" class="btn-view-course-details">Introduction
-                                                                        to Data Science in Python</a>
-                                                                </h3>
-
-
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-3 col-md-6 d-flex align-items-stretch mt-4 mt-md-0 mb-md-4">
-                                                        <div class="course-item">
-                                                            <img src="https://d1rytvr7gmk1sx.cloudfront.net/wp-content/uploads/2021/10/data-science.jpg"
-                                                                 class="img-fluid" alt="...">
-                                                            <div class="course-content">
-
-                                                                <h3><a href="#!" class="btn-view-course-details">Data
-                                                                        Analysis & Visualization</a>
-                                                                </h3>
-
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-3 col-md-6 d-flex align-items-stretch mt-4 mt-md-0 mb-md-4">
-                                                        <div class="course-item">
-                                                            <img src="https://d1rytvr7gmk1sx.cloudfront.net/wp-content/uploads/2021/10/data-science.jpg"
-                                                                 class="img-fluid" alt="...">
-                                                            <div class="course-content">
-
-                                                                <h3><a href="#!" class="btn-view-course-details">Python
-                                                                        Pandas: Handling & Analyzing Data</a>
-                                                                </h3>
-
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-3 col-md-6 d-flex align-items-stretch mt-4 mt-md-0 mb-md-4">
-                                                        <div class="course-item">
-                                                            <img src="https://d1rytvr7gmk1sx.cloudfront.net/wp-content/uploads/2021/10/data-science.jpg"
-                                                                 class="img-fluid" alt="...">
-                                                            <div class="course-content">
-
-                                                                <h3><a href="#!" class="btn-view-course-details">Statistic
-                                                                        with Python</a>
-                                                                </h3>
-
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-
-                                        </div>
-
-
-                                        <!-- Bootstrap controls [dots]-->
-                                        <a class="carousel-control-prev width-auto" href="#carouselCourseIndicators"
-                                           role="button" data-slide="prev">
-                                            <i class="fa fa-angle-left text-dark text-lg"></i>
-                                            <span class="sr-only">Previous</span>
-                                        </a>
-                                        <a class="carousel-control-next width-auto" href="#carouselCourseIndicators"
-                                           role="button" data-slide="next">
-                                            <i class="fa fa-angle-right text-dark text-lg"></i>
-                                            <span class="sr-only">Next</span>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div id="programming" role="tabpanel" aria-labelledby="profile-tab"
-                                     class="tab-pane fade px-4">
-
-                                    <div class="row">
-                                        <div class="col-lg-3 col-md-6 d-flex align-items-stretch mt-4 mt-md-0 mt-lg-0 mb-md-4">
-                                            <div class="course-item">
-                                                <img src="https://cdn.mos.cms.futurecdn.net/9QTpESGBXa32D29J77VR3d-970-80.jpg.webp"
-                                                     class="img-fluid" alt="...">
-                                                <div class="course-content">
-
-                                                    <h3><a href="#!" class="btn-view-course-details">Clasic game pong
-                                                            with
-                                                            Javascript</a></h3>
-
-
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-3 col-md-6 d-flex align-items-stretch mt-4 mt-md-0 mt-lg-0 mb-md-4">
-                                            <div class="course-item">
-                                                <img src="https://cdn.mos.cms.futurecdn.net/9QTpESGBXa32D29J77VR3d-970-80.jpg.webp"
-                                                     class="img-fluid" alt="...">
-                                                <div class="course-content">
-
-                                                    <h3><a href="#!" class="btn-view-course-details">Programming Object
-                                                            Oriented with C#</a></h3>
-
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-3 col-md-6 d-flex align-items-stretch mt-4 mt-md-0 mt-lg-0 mb-md-4">
-                                            <div class="course-item">
-                                                <img src="https://cdn.mos.cms.futurecdn.net/9QTpESGBXa32D29J77VR3d-970-80.jpg.webp"
-                                                     class="img-fluid" alt="...">
-                                                <div class="course-content">
-
-                                                    <h3><a href="#!" class="btn-view-course-details">Internet of
-                                                            things</a>
-                                                    </h3>
-
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-3 col-md-6 d-flex align-items-stretch mt-4 mt-md-0 mt-lg-0 mb-md-4">
-                                            <div class="course-item">
-                                                <img src="https://cdn.mos.cms.futurecdn.net/9QTpESGBXa32D29J77VR3d-970-80.jpg.webp"
-                                                     class="img-fluid" alt="...">
-                                                <div class="course-content">
-
-                                                    <h3><a href="#!" class="btn-view-course-details">ASP.NET Core Rest
-                                                            APIs</a></h3>
-
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
-                                <div id="gis" role="tabpanel" aria-labelledby="gis-tab" class="tab-pane fade px-4">
-                                    <div class="row">
-
-                                        <div class="col-lg-3 col-md-6 d-flex align-items-stretch mt-4 mt-md-0 mb-md-4">
-                                            <div class="course-item">
-                                                <img src="https://gisgeography.com/wp-content/uploads/2014/07/What-Is-Geographic-Information-Systems-Featured-1265x727.jpg"
-                                                     class="img-fluid" alt="...">
-                                                <div class="course-content">
-
-                                                    <h3><a href="#!" class="btn-view-course-details">Search Engine
-                                                            Optimization</a>
-                                                    </h3>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-lg-3 col-md-6 d-flex align-items-stretch mt-4 mt-md-0 mb-md-4">
-                                            <div class="course-item">
-                                                <img src="https://gisgeography.com/wp-content/uploads/2014/07/What-Is-Geographic-Information-Systems-Featured-1265x727.jpg"
-                                                     class="img-fluid" alt="...">
-                                                <div class="course-content">
-
-                                                    <h3><a href="#!" class="btn-view-course-details">Search Engine
-                                                            Optimization</a>
-                                                    </h3>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-lg-3 col-md-6 d-flex align-items-stretch mt-4 mt-md-0 mb-md-4">
-                                            <div class="course-item">
-                                                <img src="https://gisgeography.com/wp-content/uploads/2014/07/What-Is-Geographic-Information-Systems-Featured-1265x727.jpg"
-                                                     class="img-fluid" alt="...">
-                                                <div class="course-content">
-
-                                                    <h3><a href="#!" class="btn-view-course-details">Search Engine
-                                                            Optimization</a>
-                                                    </h3>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-lg-3 col-md-6 d-flex align-items-stretch mt-4 mt-md-0 mb-md-4">
-                                            <div class="course-item">
-                                                <img src="https://gisgeography.com/wp-content/uploads/2014/07/What-Is-Geographic-Information-Systems-Featured-1265x727.jpg"
-                                                     class="img-fluid" alt="...">
-                                                <div class="course-content">
-
-                                                    <h3 class="display-1"><a href="#!" class="btn-view-course-details">Search
-                                                            Engine Optimization</a>
-                                                    </h3>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
-                                <div id="mobile" role="tabpanel" aria-labelledby="mobile-tab"
-                                     class="tab-pane fade px-4">
-                                    <div class="row">
-
-                                        <div class="col-lg-3 col-md-6 d-flex align-items-stretch mt-4 mt-md-0 mb-md-4">
-                                            <div class="course-item">
-                                                <img src="https://matheusrumetna.com/wp-content/uploads/2022/03/mobile.png"
-                                                     class="img-fluid" alt="...">
-                                                <div class="course-content">
-
-                                                    <h3><a href="#!" class="btn-view-course-details">Flutter</a>
-                                                    </h3>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-lg-3 col-md-6 d-flex align-items-stretch mt-4 mt-md-0 mb-md-4">
-                                            <div class="course-item">
-                                                <img src="https://matheusrumetna.com/wp-content/uploads/2022/03/mobile.png"
-                                                     class="img-fluid" alt="...">
-                                                <div class="course-content">
-
-                                                    <h3><a href="#!" class="btn-view-course-details">Android</a>
-                                                    </h3>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-lg-3 col-md-6 d-flex align-items-stretch mt-4 mt-md-0 mb-md-4">
-                                            <div class="course-item">
-                                                <img src="https://matheusrumetna.com/wp-content/uploads/2022/03/mobile.png"
-                                                     class="img-fluid" alt="...">
-                                                <div class="course-content">
-
-                                                    <h3><a href="#!" class="btn-view-course-details">Android
-                                                            Architecture</a>
-                                                    </h3>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-lg-3 col-md-6 d-flex align-items-stretch mt-4 mt-md-0 mb-md-4">
-                                            <div class="course-item">
-                                                <img src="https://matheusrumetna.com/wp-content/uploads/2022/03/mobile.png"
-                                                     class="img-fluid" alt="...">
-                                                <div class="course-content">
-
-                                                    <h3 class="display-1"><a href="#!"
-                                                                             class="btn-view-course-details">IOS</a>
-                                                    </h3>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <!-- End lined tabs -->
                 </div>
 
 

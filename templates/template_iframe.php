@@ -1,4 +1,6 @@
 <?php
+header('X-Frame-Options: SAMEORIGIN');
+
 /*
   Template Name: The Iframe Template
  */
@@ -14,24 +16,23 @@
 
     <meta name="author" content="Goku Gohan">
     <meta name="description"
-          content="MTimor-Leste Portal Municipal plataforma de dados para o desenvolvimento de Timor-Leste | R2M IT Solution.">
+          content="MTimor-Leste Portal Municipal plataforma de dados para o desenvolvimento de Timor-Leste">
     <meta name="keywords"
           content="Municipality, Municipality Project, Municipality Point Of Interest, Point Of Interest">
 
     <!-- Open graph tags -->
     <meta property="og:title"
-          content="Timor-Leste Portal Municipal plataforma de dados para o desenvolvimento de Timor-Leste | R2M IT Solution.">
+          content="Timor-Leste Portal Municipal plataforma de dados para o desenvolvimento de Timor-Leste">
     <meta property="og:type" content="map">
     <meta property="og:url" content="/images/municipality.png">
     <meta property="og:image" content="/images/municipality.png">
     <meta property="og:description"
-          content="Timor-Leste Portal Municipal plataforma de dados para o desenvolvimento de Timor-Leste | R2M IT Solution.">
+          content="Timor-Leste Portal Municipal plataforma de dados para o desenvolvimento de Timor-Leste">
     <meta property="og:site_name"
-          content="Timor-Leste Portal Municipal plataforma de dados para o desenvolvimento de Timor-Leste | R2M IT Solution">
+          content="Timor-Leste Portal Municipal plataforma de dados para o desenvolvimento de Timor-Leste">
 
     <meta property="article:author" content="https://www.facebook.com/helderchebre">
-    <title>Timor-Leste Portal Municipal plataforma de dados para o desenvolvimento de Timor-Leste | R2M IT
-        Solution</title>
+    <title>Timor-Leste Portal Municipal plataforma de dados para o desenvolvimento de Timor-Leste</title>
 
     <link rel="icon" type="image/x-icon"
           href="<?php echo get_stylesheet_directory_uri() . '/assets/img/favicon.ico' ?>">

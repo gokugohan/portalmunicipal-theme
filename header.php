@@ -91,7 +91,7 @@ if ($hero_background_image == null) {
 
         <?php
 
-        if (is_page('plataforma-de-treinamentu') || is_page('kona-ba-plataforma-treinamentu')) {
+        if (is_page('plataforma-de-treinamentu') || is_page('kona-ba-plataforma-treinamentu') || is_tax('courses-category')) {
 
             ?>
             <link href="<?php echo get_stylesheet_directory_uri() . '/assets/vendor/animate.css/animate.min.css' ?>"
@@ -105,174 +105,12 @@ if ($hero_background_image == null) {
             <link href="<?php echo get_stylesheet_directory_uri() . '/assets/vendor/swiper/swiper-bundle.min.css' ?>"
                   rel="stylesheet">
 
-
-            <style>
-
-
-                .services-area {
-                    margin-top: -50px;
-                }
-
-                .services-area .service-area-header {
-                    margin: 0 auto;
-                }
-
-                .services-area .service-area-header h3 {
-                    font-size: 1.875rem;
-                    font-weight: bold;
-                    text-transform: uppercase;
-                    color: #093366;
-                    margin-bottom: .5em;
-                }
-
-                @media (min-width: 1024px) {
-                    .services-area .service-area-header {
-                        text-align: center;
-                        width: 50%;
-                        margin-bottom: 6em;
-                    }
-                }
-
-                @media (max-width: 768px) {
-                    .services-area {
-                        /*margin-top: -20px;*/
-                    }
-
-                    #hero {
-                        height: auto !important;
-                    }
-                }
-
-                .services-area .single-services {
-                    display: flex;
-                    box-shadow: 0px 25px 60px rgba(150, 8, 7, 0.05);
-                    padding: 29px 24px;
-                    border-radius: 20px;
-                    background: #fff;
-                    margin-bottom: 30px;
-                    transition: 1s;
-
-                }
-
-                .services-area .single-services:hover {
-                    box-shadow: 0px 25px 60px rgba(150, 8, 7, .3);
-                }
-
-                .services-area .single-services .features-icon {
-                    position: relative;
-                    top: 8px;
-                }
-
-                .services-area .single-services .features-icon img {
-                    display: block;
-                    width: 100px;
-                }
-
-                .services-area .single-services .features-caption {
-                    padding-left: 19px;
-                }
-
-                .services-area .single-services .features-caption h3 {
-                    font-size: 20px;
-                    line-height: 1.2;
-                    margin-bottom: 10px;
-                    font-weight: 700;
-                    color: #960807;
-                }
-
-                .services-area .single-services .features-caption p {
-                    font-size: 1.2rem;
-                    line-height: 1.5;
-                    margin-bottom: 0;
-                    margin-top: 0;
-                }
-
-
-                .about-training-content ul {
-                    list-style: none;
-                }
-
-                .about-training-content ul li:before {
-                    content: "\f26b";
-                    display: inline-block;
-                    font-family: bootstrap-icons !important;
-                    font-style: normal;
-                    font-weight: normal !important;
-                    font-variant: normal;
-                    text-transform: none;
-                    line-height: 1;
-                    vertical-align: -.125em;
-                    -webkit-font-smoothing: antialiased;
-                    -moz-osx-font-smoothing: grayscale;
-                }
-
-            </style>
+            <link href="<?php echo get_stylesheet_directory_uri() . '/assets/css/course_carousel.css' ?>"
+                  rel="stylesheet">
             <?php
         }
 
         ?>
-        <!--    Form Comment -->
-        <style>
-            .comment-form {
-                margin-bottom: 20px;
-            }
-
-            .comment-form > p > label {
-                padding: 10px 0;
-                font-weight: 600;
-            }
-
-            .comment-form #comment {
-                display: block;
-                width: 100%;
-
-                padding: .375rem .75rem;
-                font-size: 1rem;
-                font-weight: 400;
-                line-height: 1.5;
-                color: #495057;
-                background-color: #fff;
-                background-clip: padding-box;
-                border: 1px solid #ced4da;
-                border-radius: .25rem;
-                transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
-            }
-
-            .comment-form #submit {
-                padding: 10px 20px;
-                background: #960807;
-                border: unset;
-                color: #fff;
-                cursor: pointer;
-                box-shadow: 0 0 2px #960807;
-                outline: 0;
-                position: relative;
-                border-radius: 6px;
-                font-weight: 500;
-            }
-
-            .comment-form #submit:after {
-                content: "\f017";
-                display: inline-block;
-                font: normal normal normal 14px/1 FontAwesome;
-                font-size: inherit;
-                text-rendering: auto;
-                -webkit-font-smoothing: antialiased;
-                -moz-osx-font-smoothing: grayscale;
-            }
-
-            #checkout-payment #checkout-order-action button {
-                margin: 0 !important;
-                background: #960807 !important;
-            }
-
-            .lp-user-profile.guest .lp-content-area {
-                padding: 20px;
-                font-size: 24px;
-                text-align: center;
-            }
-
-        </style>
 
         <style>
             <?php
@@ -288,7 +126,6 @@ if ($hero_background_image == null) {
             #hero {
                 background-image: url("<?= $hero_background_image ?>");
                 background-size: cover;
-
                 background-attachment: fixed;
                 background-repeat: no-repeat;
 
@@ -296,7 +133,7 @@ if ($hero_background_image == null) {
 
 
             <?php
-                        }else{
+                        }else if(is_page('service-to-citizen')){
                 ?>
             #hero {
                 background-image: url("<?= $hero_background_image ?>");
@@ -304,11 +141,28 @@ if ($hero_background_image == null) {
 
                 background-attachment: fixed;
                 background-repeat: no-repeat;
-                height: 100vh;
+                /*height: 50vh;*/
             }
+
+            #hero img.header_logo{
+                width: 150px;
+            }
+
+
 
             <?php
 
+                    }else{
+                ?>
+            #hero {
+                background-image: url("<?= $hero_background_image ?>");
+                background-size: cover;
+
+                background-attachment: fixed;
+                background-repeat: no-repeat;
+                /*height: 100vh;*/
+            }
+                <?php
                     }
                     ?>
             @media (max-width: 576px) {
@@ -399,127 +253,14 @@ if ($hero_background_image == null) {
         ?>
 
         <style>
-            .custom-menu-list {
-                flex-direction: row;
-            }
-
-            .custom-menu-list a.dropdown-item {
-                padding: 0;
-            }
-
-            .custom-menu-list .dropdown-item:focus, .dropdown-item:hover {
-                background: transparent !important;
-            }
-
-            .download-list li:first-child a, .download-list li:first-child a span {
-                padding-left: 0px;
-            }
-
-            .download-counter {
-                margin: 0 0 0 30px;
-                padding: 7px;
-                background: #960707;
-                color: #e9e9e9;
-                border-color: transparent;
-                border-radius: 5px;
-                font-weight: 600;
-                font-size: 16px;
-                cursor: text !important;
-            }
-
-
-            /*    Navbar */
-
-
-            #modal-sso-login .modal-dialog {
-                width: 25%;
-            }
-
-            @media only screen and
-            (min-device-width: 768px) and
-            (max-device-width: 1023px) {
-                #modal-sso-login .modal-dialog {
-                    width: 50%;
-                }
-            }
-
-
-            @media (max-width: 359px) {
-                #modal-sso-login .modal-dialog {
-                    width: 90%;
-                }
-            }
-
-            @media (min-width: 360px) and (max-width: 767px) {
-                #modal-sso-login .modal-dialog {
-                    width: 90%;
-                }
-            }
-
-            .btn-getstarted {
-                background: #960807;
-                color: #fff;
-                margin: 10px 10px !important;
-                padding: 10px 10px !important;
-            }
-
-
-            #accordion_faq .card {
-                border-top: 3px solid #960707 !important;
-            }
-
-            #accorditon_faq .content > h6, #accordion_faq .content > h6 a {
-                color: #960807 !important;
-            }
-
-            #accordion_faq > .card > .card-header h6 a {
-                color: #960807 !important;
-            }
-
-            #accordion_faq .card-body p {
-                line-height: 1.5em;
-                font-size: 1.175rem;
-            }
-
-            li.nav-item {
-                transition: 0.3s;
-            }
-
-            li.nav-item:hover {
-                background: #960807;
-                border-radius: 4px;
-            }
-
-            /*--------------------------------------------------------------
-        # Cta
-        --------------------------------------------------------------*/
             .cta {
                 background: linear-gradient(rgba(150, 8, 7, .1), rgba(150, 8, 7, .25)), url("<?php echo get_stylesheet_directory_uri() . '/assets/img/corosal.jpg' ?>") fixed center center;
-                background-size: cover;
-                padding: 100px 0;
             }
 
-
-            .cta p {
-                font-size: 1.2rem;
-            }
-
-            @media (min-width: 992px)
-                .text-lg-start {
-                    text-align: left !important;
-                }
-            }
-
-            @media (max-width: 1024px) {
-                .cta {
-                    background-attachment: scroll;
-                }
-            }
 
         </style>
     </head>
 <body>
-
     <!-- NAVBAR-->
 <?php
 //var_dump(WPGlobus::Config()->language_name["pt"]);
@@ -539,10 +280,6 @@ include("includes/top_bar_menu.php");
 if (is_front_page()) {
     include("includes/hero.php");
     ?>
-    <style>
-
-
-    </style>
     <section id="cta" class="cta">
         <div class="container">
             <div class="row">

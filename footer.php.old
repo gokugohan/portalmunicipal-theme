@@ -107,107 +107,137 @@ $sponsor1_img = get_theme_mod('municipality_footer_sponsor1');
 $sponsor2_img = get_theme_mod('municipality_footer_sponsor2');
 $sponsor3_img = get_theme_mod('municipality_footer_sponsor3');
 $sponsor4_img = get_theme_mod('municipality_footer_sponsor4');
-$sponsor5_img = get_theme_mod('municipality_footer_sponsor5');
 
 
 $sponsor1_url = filter_text_wpglobus(get_theme_mod('municipality_footer_sponsor1_url', '#!'));
 $sponsor2_url = filter_text_wpglobus(get_theme_mod('municipality_footer_sponsor2_url', '#!'));
 $sponsor3_url = filter_text_wpglobus(get_theme_mod('municipality_footer_sponsor3_url', '#!'));
 $sponsor4_url = filter_text_wpglobus(get_theme_mod('municipality_footer_sponsor4_url', '#!'));
-$sponsor5_url = filter_text_wpglobus(get_theme_mod('municipality_footer_sponsor5_url', '#!'));
 
 
 ?>
+<footer id="footer">
+    <div class="footer-top">
+        <div class="container-fluid">
+            <div class="row">
 
-<!-- ======= Footer ======= -->
-<footer id="footer" class="footer pb-0">
+                <div class="col-lg-3 col-md-6">
+                    <div class="footer-info">
+                        <p><?= filter_text_wpglobus(get_theme_mod('municipality_address_entity_name', 'Ministério da Administração Estatal')) ?></p>
+                        <p><strong><?= lang('address') ?>
+                                :</strong> <?= filter_text_wpglobus(get_theme_mod('municipality_address_entity_address', 'Rua 20 de Maio, nº43, Dili, Timor-Leste')) ?>
+                            <br>
+
+                            <strong><?= lang('phone') ?>
+                                :</strong> <?= filter_text_wpglobus(get_theme_mod('municipality_address_entity_phone', '(+670) 333 9077')) ?>
+                            <br>
+                            <strong><?= lang('email') ?>
+                                :</strong> <?= filter_text_wpglobus(get_theme_mod('municipality_address_entity_email', 'portalmunicipal.mae@gmail.com')) ?>
+                            <br>
+                        </p>
+
+                        <!--<div class="social-links mt-3">
+                            <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+                            <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+                            <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+                            <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+                            <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+                        </div>-->
+                    </div>
+                </div>
+
+
+                <div class="col-lg-9 col-md-6">
+                    <ul class="list-unstyled list-inline sponsors">
+                        <li class="list-inline-item">
+                            <a class="btn-floating btn-fb mx-1" href="<?= $sponsor1_url ?>">
+                                <?php
+                                if ($sponsor1_img) {
+                                ?>
+                            <img class="sponsors-logo" alt="" src="<?= $sponsor1_img ?>">
+                                <?php
+                                }
+                                /*else {
+                                    */ ?><!--
+                                    <img class="sponsors-logo" alt=""
+                                         src="<?php /*echo get_stylesheet_directory_uri() . '/assets/img/p-5.png' */ ?>">
+                                    --><?php
+                                /*                                }*/
+                                ?>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a class="btn-floating btn-tw mx-1" href="<?= $sponsor2_url ?>">
+                                <?php
+                                if ($sponsor2_img) {
+                                ?>
+                            <img class="sponsors-logo" alt="" src="<?= $sponsor2_img ?>">
+                                <?php
+                                }
+                                /*else {
+                                    */ ?><!--
+                                    <img class="sponsors-logo" alt=""
+                                         src="<?php /*echo get_stylesheet_directory_uri() . '/assets/img/municipality_01.png' */ ?>">
+                                    --><?php
+                                /*                                }*/
+                                ?>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a class="btn-floating btn-gplus mx-1"
+                               href="<?= $sponsor3_url ?>">
+                                <?php
+                                if ($sponsor3_img) {
+                                ?>
+                            <img class="sponsors-logo" alt="" src="<?= $sponsor3_img ?>">
+                                <?php
+                                }
+                                /*else {
+                                    */ ?><!--
+                                    <img class="sponsors-logo" alt=""
+                                         src="<?php /*echo get_stylesheet_directory_uri() . '/assets/img/UNDP.png' */ ?>">
+                                    --><?php
+                                /*                                }*/
+                                ?>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a class="btn-floating btn-li mx-1" href="<?= $sponsor4_url ?>">
+                                <?php
+                                if ($sponsor4_img) {
+                                    ?>
+                                    <img class="sponsors-logo" alt="" src="<?= $sponsor4_img ?>">
+                                    <?php
+                                }
+                                //                                else {
+                                //                                    ?>
+                                <!--                                    <img class="sponsors-logo" alt=""-->
+                                <!--                                         src="-->
+                                <?php //echo get_stylesheet_directory_uri() . '/assets/img/enlogo.png' ?><!--">-->
+                                <!--                                    --><?php
+                                //                                }
+                                ?>
+                                <!--                                <img class="sponsors-logo" alt=""-->
+                                <!--                                     src="-->
+                                <?php //echo get_stylesheet_directory_uri() . '/assets/img/enlogo.png' ?><!--"-->
+                                <!--                                     style="width:75px;">-->
+                            </a>
+                        </li>
+
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </div>
 
     <div class="container">
-        <div class="row gy-4">
-            <div class="col-lg-5 col-md-12 footer-info">
-                <h4 class="logo ds-flex align-items-center">
-                    <?= filter_text_wpglobus(get_theme_mod('municipality_address_entity_name', 'Ministério da Administração Estatal')) ?>
-                </h4>
-                <p>
-                    <strong><?= lang('address') ?>
-                        :</strong> <?= filter_text_wpglobus(get_theme_mod('municipality_address_entity_address', 'Rua 20 de Maio, nº43, Dili, Timor-Leste')) ?>
-                    <br>
-                    <strong><?= lang('phone') ?>
-                        :</strong> <?= filter_text_wpglobus(get_theme_mod('municipality_address_entity_phone', '(+670) 333 9077')) ?>
-                    <br>
-                    <strong><?= lang('email') ?>
-                        :</strong> <?= filter_text_wpglobus(get_theme_mod('municipality_address_entity_email', 'portalmunicipal.mae@gmail.com')) ?>
-                    <br>
-                </p>
-            </div>
-
-            <div class="col-lg-2 col-md-12 footer-links">
-                <h4><?= lang('Quick Link') ?></h4>
-                <?php get_menu_quick_links();?>
-
-            </div>
-
-            <div class="col-lg-5 col-md-12 footer-contact text-md-start">
-                <h4><?= lang('Sponsors') ?></h4>
-                <div class="partners d-flex mt-4">
-                    <a href="<?= $sponsor1_url ?>">
-                        <?php
-                        if ($sponsor1_img) {
-                            ?>
-                            <img class="sponsors-logo" alt="" src="<?= $sponsor1_img ?>">
-                            <?php
-                        }
-                        ?>
-                    </a>
-                    <a href="<?= $sponsor2_url ?>">
-                        <?php
-                        if ($sponsor2_img) {
-                            ?>
-                            <img class="sponsors-logo" alt="" src="<?= $sponsor2_img ?>">
-                            <?php
-                        }
-                        ?>
-                    </a>
-                    <a href="<?= $sponsor3_url ?>">
-                        <?php if ($sponsor3_img) {
-                            ?>
-                            <img class="sponsors-logo" alt="" src="<?= $sponsor3_img ?>">
-                            <?php
-                        }
-                        ?>
-                    </a>
-                    <a href="<?= $sponsor4_url ?>">
-                        <?php
-                        if ($sponsor4_img) {
-                            ?>
-                            <img class="sponsors-logo" alt="" src="<?= $sponsor4_img ?>">
-                            <?php
-                        }
-                        ?>
-                    </a>
-                    <a href="<?= $sponsor5_url ?>">
-                        <?php
-                        if ($sponsor5_img) {
-                            ?>
-                            <img class="sponsors-logo" alt="" src="<?= $sponsor5_img ?>">
-                            <?php
-                        }
-                        ?>
-                    </a>
-                </div>
-            </div>
-
-        </div>
-    </div>
-
-    <div class="container mt-4">
         <div class="copyright">
-            &copy; <?= date('Y') ?><?= filter_text_wpglobus(get_theme_mod('municipality_address_entity_name', 'Ministério da Administração Estatal')) ?>
+            © <?= date('Y') ?> <strong><span>Ministério da Administração Estatal de Timor-Leste</span></strong>. All
+            Rights Reserved
         </div>
     </div>
-
 </footer>
-<!-- End Footer -->
 
 
 <script src="<?php echo get_stylesheet_directory_uri() . '/assets/js/jquery.min.js' ?>"></script>
@@ -217,6 +247,26 @@ $sponsor5_url = filter_text_wpglobus(get_theme_mod('municipality_footer_sponsor5
 
 <script src="<?php echo get_stylesheet_directory_uri() . '/assets/js/sweetalert2@10.js' ?>"></script>
 
+<?php
+if (is_front_page()) {
+    ?>
+
+    <script src="<?php echo get_stylesheet_directory_uri() . '/assets/js/highcharts/highmaps.js' ?>"></script>
+    <script src="<?php echo get_stylesheet_directory_uri() . '/assets/js/highcharts/exporting.js' ?>"></script>
+    <script src="<?php echo get_stylesheet_directory_uri() . '/assets/js/highcharts/offline-exporting.js' ?>"></script>
+    <script src="<?php echo get_stylesheet_directory_uri() . '/assets/js/highcharts/export-data.js' ?>"></script>
+    <script src="<?php echo get_stylesheet_directory_uri() . '/assets/js/highcharts/tl_all.js' ?>"></script>
+
+    <script>
+        $(document).ready(function () {
+            $(".table-library").DataTable({
+                // "lengthMenu": [[5, 10, 25, 50, -1], [5, 10, 25, 50, "All"]]
+            });
+        });
+    </script>
+    <?php
+}
+?>
 <script src='https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js'></script>
 <script src='https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap4.min.js'></script>
 
@@ -229,14 +279,13 @@ $sponsor5_url = filter_text_wpglobus(get_theme_mod('municipality_footer_sponsor5
 
 <?php
 
-if (is_page('plataforma-de-treinamentu') || is_page('kona-ba-plataforma-treinamentu') || is_tax('courses-category')) {
+if (is_page('plataforma-de-treinamentu') || is_page('kona-ba-plataforma-treinamentu')) {
     ?>
     <script src="<?php echo get_stylesheet_directory_uri() . '/assets/vendor/glightbox/js/glightbox.min.js' ?>"></script>
     <script src="<?php echo get_stylesheet_directory_uri() . '/assets/vendor/purecounter/purecounter.js' ?>"></script>
     <script src="<?php echo get_stylesheet_directory_uri() . '/assets/vendor/swiper/swiper-bundle.min.js' ?>"></script>
     <script>
         $(document).ready(function () {
-
 
             $('#hero-carousel').carousel({
                 // interval: 10000,
@@ -268,9 +317,6 @@ if (is_page('plataforma-de-treinamentu') || is_page('kona-ba-plataforma-treiname
                 }
             });
 
-            $('#table-courses').dataTable({
-                "pageLength": 25
-            });
 
             $(".btn-view-course-details").on("click", function () {
                 alert("It's just a sample data, not from coursera");
@@ -297,7 +343,6 @@ if (is_page('plataforma-de-treinamentu') || is_page('kona-ba-plataforma-treiname
     </script>
     <?php
 }
-
 if (is_page('Services')) {
     ?>
 
@@ -450,22 +495,11 @@ if (is_page('Services')) {
     });
 
 </script>
-
 <?php
 if (is_front_page()) {
     ?>
-
-    <script src="<?php echo get_stylesheet_directory_uri() . '/assets/js/highcharts/highmaps.js' ?>"></script>
-    <script src="<?php echo get_stylesheet_directory_uri() . '/assets/js/highcharts/exporting.js' ?>"></script>
-    <script src="<?php echo get_stylesheet_directory_uri() . '/assets/js/highcharts/offline-exporting.js' ?>"></script>
-    <script src="<?php echo get_stylesheet_directory_uri() . '/assets/js/highcharts/export-data.js' ?>"></script>
-    <script src="<?php echo get_stylesheet_directory_uri() . '/assets/js/highcharts/tl_all.js' ?>"></script>
-
     <script>
         $(document).ready(function () {
-            $(".table-library").DataTable({
-                // "lengthMenu": [[5, 10, 25, 50, -1], [5, 10, 25, 50, "All"]]
-            });
             /* BEGIN MUNICIPALITY PROFILES AND PROJECT MAP */
             let lang = "<?=lang_code() ?>";
             let area_data = [];
@@ -482,206 +516,118 @@ if (is_front_page()) {
                 // load_municipality_profile();
 
             })
+            load_municipality_profile();
 
-            let municipality_project_data = [];
-            let municipality_project_data_values = [];
+            function load_municipality_profile() {
+                $.ajax({
+                    url: '<?php echo api_url() ?>/get-list/' + lang,
+                    type: 'GET',
+                    success: function (res) {
+
+                        if ($.isEmptyObject(res.error)) {
+                            let dataList = res.data.list;
+                            let htmlList = '';
+                            area_code_list = res.data.area_list;
+
+                            $.each(dataList, function (i, v) {
+
+                                htmlList += '<div class="view view-first">';
+                                htmlList += '<img src="' + v.banner_img + '">';
+                                htmlList += '<div class="mask">';
+                                // htmlList += '<h2><a href="profile_details.php?page=' + v.id + '&area=' + v.area_id + '" class="info">' + v.name + '</a></h2>';
+                                if (v.website != null) {
+                                    htmlList += '<h2><a target="_blank" href="' + v.website + '" class="info">' + v.name + '</a></h2>';
+                                } else {
+                                    //htmlList += '<h2><a href="profile.php?area=' + v.area_id + '" class="info">' + v.name + '</a></h2>';
+                                    htmlList += '<h2><a href="#!" class="info">' + v.name + '</a></h2>';
+                                }
+
+                                //
+                                htmlList += '</div>';
+                                htmlList += '</div>';
+
+                                if (v.image.length > 0) {
+
+                                    let data = [];
+                                    v.image.forEach(function (key) {
+                                        data.push({
+                                            key: key.image_name,
+                                            value: key.description,
+                                            image_url: key.image_url,
+                                        });
+
+                                    });
+                                    let area_id = v.area_id;
+                                    // area_data={
+                                    //      [area_id]:{
+                                    //        data
+                                    //      }
+                                    //  };
+
+                                    area_data[area_id] = data;
+
+                                }
+
+                            });
 
 
-            getMunicipalityProject();
+                            if (area_data[dataList[0].area_id] != undefined) {
+                                if (area_data[dataList[0].area_id].length > 0) {
 
-            // Get from wordpress page
-            function getMunicipalityProject() {
+                                    let li_data = "";
 
-                let municipalities_web_name = [
-                    // 'aileu','ainaro','baucau','bobonaro','covalima','dili','ermera',
-                    // 'lautem','liquica','manatuto','manufahi','viqueque'
-                    'baucau', 'dili'
-                ];
+                                    area_data[dataList[0].area_id].forEach(function (ele) {
 
-                let result_responses = [];
+                                        li_data += '<li>' +
+                                            '<img src="' + ele.image_url + '" class="img-responsive img-data"> ' +
+                                            '<span><p class="fnt-wgt">' + ele.key + '</p> <p class="fnt-wgt1">' + ele.value + '</p><span>' +
+                                            '</li>';
+
+                                    });
+
+                                    $(".add_li").html(li_data);
 
 
-                let ajax_aileu = $.ajax({
-                    url: 'https://aileu.gov.tl/wp-admin/admin-ajax.php',
-                    type: 'post',
-                    crossDomain: true,
-                    data: {action: 'fetch_total_project'},
-                    success: function (response) {
-                        result_responses.push(response.data);
+                                } else {
+
+                                }
+
+                            } else {
+
+                            }
+
+
+                            $('#modal_municipality_list').html(htmlList);
+                            get_municipality_projects();
+
+                            // $("#modal-municipality-profiles").modal("show");
+                        } else {
+                            printErrorMsg(res.error);
+                        }
                     }
+                }).done(function () {
+                    hidePreLoader();
                 });
-
-                let ajax_ainaro = $.ajax({
-                    url: 'https://ainaro.gov.tl/wp-admin/admin-ajax.php',
-                    type: 'post',
-                    crossDomain: true,
-                    data: {action: 'fetch_total_project'},
-                    success: function (response) {
-                        result_responses.push(response.data);
-                    }
-                });
-
-
-                let ajax_baucau = $.ajax({
-                    url: 'https://baucau.gov.tl/wp-admin/admin-ajax.php',
-                    type: 'post',
-                    crossDomain: true,
-                    data: {action: 'fetch_total_project'},
-                    success: function (response) {
-                        result_responses.push(response.data);
-                    }
-                });
-
-                let ajax_bobonaro = $.ajax({
-                    url: 'https://bobonaro.gov.tl/wp-admin/admin-ajax.php',
-                    type: 'post',
-                    crossDomain: true,
-                    data: {action: 'fetch_total_project'},
-                    success: function (response) {
-                        result_responses.push(response.data);
-                    }
-                });
-                let ajax_covalima = $.ajax({
-                    url: 'https://covalima.gov.tl/wp-admin/admin-ajax.php',
-                    type: 'post',
-                    crossDomain: true,
-                    data: {action: 'fetch_total_project'},
-                    success: function (response) {
-                        result_responses.push(response.data);
-                    }
-                });
-
-                let ajax_dili = $.ajax({
-                    url: 'https://dili.gov.tl/wp-admin/admin-ajax.php',
-                    type: 'post',
-                    crossDomain: true,
-                    data: {action: 'fetch_total_project'},
-                    success: function (response) {
-                        result_responses.push(response.data);
-                    }
-                });
-                let ajax_ermera = $.ajax({
-                    url: 'https://ermera.gov.tl/wp-admin/admin-ajax.php',
-                    type: 'post',
-                    crossDomain: true,
-                    data: {action: 'fetch_total_project'},
-                    success: function (response) {
-                        result_responses.push(response.data);
-                    }
-                });
-                let ajax_lautem = $.ajax({
-                    url: 'https://lautem.gov.tl/wp-admin/admin-ajax.php',
-                    type: 'post',
-                    crossDomain: true,
-                    data: {action: 'fetch_total_project'},
-                    success: function (response) {
-                        result_responses.push(response.data);
-                    }
-                });
-                let ajax_liquica = $.ajax({
-                    url: 'https://liquica.gov.tl/wp-admin/admin-ajax.php',
-                    type: 'post',
-                    crossDomain: true,
-                    data: {action: 'fetch_total_project'},
-                    success: function (response) {
-                        result_responses.push(response.data);
-                    }
-                });
-                let ajax_manatuto = $.ajax({
-                    url: 'https://manatuto.gov.tl/wp-admin/admin-ajax.php',
-                    type: 'post',
-                    crossDomain: true,
-                    data: {action: 'fetch_total_project'},
-                    success: function (response) {
-                        result_responses.push(response.data);
-                    }
-                });
-                let ajax_manufahi = $.ajax({
-                    url: 'https://manufahi.gov.tl/wp-admin/admin-ajax.php',
-                    type: 'post',
-                    crossDomain: true,
-                    data: {action: 'fetch_total_project'},
-                    success: function (response) {
-                        result_responses.push(response.data);
-                    }
-                });
-                let ajax_viqueque = $.ajax({
-                    url: 'https://viqueque.gov.tl/wp-admin/admin-ajax.php',
-                    type: 'post',
-                    crossDomain: true,
-                    data: {action: 'fetch_total_project'},
-                    success: function (response) {
-                        result_responses.push(response.data);
-                    }
-                });
-
-                $.when(ajax_aileu, ajax_ainaro, ajax_baucau,
-                    ajax_bobonaro, ajax_covalima,
-                    ajax_dili, ajax_ermera, ajax_lautem, ajax_liquica,
-                    ajax_manatuto, ajax_manufahi, ajax_viqueque
-                ).then(function (result_aileu, result_ainaro, result_baucau, result_bobonaro, result_covalima, result_dili,
-                                 result_ermera, result_lautem, result_liquica, result_manatuto, result_manufahi, result_viqueque) {
-
-                    municipality_project_data.push([result_aileu[0].data.code, result_aileu[0].data.total]);
-                    municipality_project_data_values[result_aileu[0].data.code] = result_aileu[0].data.total;
-
-                    municipality_project_data.push([result_ainaro[0].data.code, result_ainaro[0].data.total]);
-                    municipality_project_data_values[result_ainaro[0].data.code] = result_ainaro[0].data.total;
-
-                    municipality_project_data.push([result_baucau[0].data.code, result_baucau[0].data.total]);
-                    municipality_project_data_values[result_baucau[0].data.code] = result_baucau[0].data.total;
-
-                    municipality_project_data.push([result_bobonaro[0].data.code, result_bobonaro[0].data.total]);
-                    municipality_project_data_values[result_bobonaro[0].data.code] = result_bobonaro[0].data.total;
-
-                    municipality_project_data.push([result_covalima[0].data.code, result_covalima[0].data.total]);
-                    municipality_project_data_values[result_covalima[0].data.code] = result_covalima[0].data.total;
-
-                    municipality_project_data.push([result_dili[0].data.code, result_dili[0].data.total]);
-                    municipality_project_data_values[result_dili[0].data.code] = result_dili[0].data.total;
-
-                    municipality_project_data.push([result_ermera[0].data.code, result_ermera[0].data.total]);
-                    municipality_project_data_values[result_ermera[0].data.code] = result_ermera[0].data.total;
-
-                    municipality_project_data.push([result_lautem[0].data.code, result_lautem[0].data.total]);
-                    municipality_project_data_values[result_lautem[0].data.code] = result_lautem[0].data.total;
-
-                    municipality_project_data.push([result_liquica[0].data.code, result_liquica[0].data.total]);
-                    municipality_project_data_values[result_liquica[0].data.code] = result_liquica[0].data.total;
-
-                    municipality_project_data.push([result_manatuto[0].data.code, result_manatuto[0].data.total]);
-                    municipality_project_data_values[result_manatuto[0].data.code] = result_manatuto[0].data.total;
-
-                    municipality_project_data.push([result_manufahi[0].data.code, result_manufahi[0].data.total]);
-                    municipality_project_data_values[result_manufahi[0].data.code] = result_manufahi[0].data.total;
-
-                    municipality_project_data.push([result_viqueque[0].data.code, result_viqueque[0].data.total]);
-                    municipality_project_data_values[result_viqueque[0].data.code] = result_viqueque[0].data.total;
-
-                    municipality_project_data.push(['TLS012', 0]);
-                    municipality_project_data_values['TLS012'] = 0;
-
-                    renderMap();
-                })
-
-            }//getMunicipalityProject
+            } // load_municipality_profile
 
             // Get from laravel
             function get_municipality_projects(lang) {
-                //showPreLoader();
-                //$.ajax({
-                //    url: "<?//=api_url() ?>///" + lang + "/all-projects-map-data",
-                //    type: "get",
-                //    success: function (res) {
-                //        projects = res;
-                //        for (const resKey in res) {
-                //            data.push([resKey,res[resKey].total])
-                //        }
-                //        // renderMap();
-                //    }
-                //}).done(function () {
-                //    hidePreLoader();
-                //});
+                showPreLoader();
+                $.ajax({
+                    url: "<?=api_url() ?>/" + lang + "/all-projects-map-data",
+                    type: "get",
+                    success: function (res) {
+                        projects = res;
+                        for (const resKey in res) {
+                            data.push([ resKey,
+                                res[resKey].total
+                            ])
+                        }
+                        renderMap();
+                    }
+                }).done(function () {
+                    hidePreLoader();
+                });
             }
 
 
@@ -689,7 +635,6 @@ if (is_front_page()) {
 
             function renderMap() {
 
-                console.log(municipality_project_data);
                 Highcharts.setOptions({
                     lang: {
                         zoomIn: "Zoom in",
@@ -821,19 +766,15 @@ if (is_front_page()) {
                             } else {
                                 $(".add_li").html("<li><?php echo lang('no_data'); ?></li>");
                             }
+                            //
+                            // console.log(this.point.properties);
+                            // console.log(projects);
+                            // console.log(projects[this.point.properties.code]);
+                            let totalProject = projects[this.point.properties.code].total;
 
-
-                            let totalProject = municipality_project_data_values[this.point.properties.code];
-
-                            if (totalProject === undefined) {
-                                totalProject = 0;
-                            } else {
-                                if (totalProject > 1) {
-                                    prStr = '<?php echo lang('projects'); ?>';
-                                }
-
+                            if (totalProject > 1) {
+                                prStr = '<?php echo lang('projects'); ?>';
                             }
-
 
                             return '<h6>' + this.point.properties.name + '</h6><br>' + prStr + ': ' + totalProject;
 
@@ -851,7 +792,7 @@ if (is_front_page()) {
                         enabled: false
                     },
                     series: [{
-                        data: municipality_project_data,
+                        data: data,
                         name: '<?php echo lang('projects');?>',
                         color: Highcharts.getOptions().colors[2],
                         states: {
@@ -869,14 +810,11 @@ if (is_front_page()) {
                             },
                             // format: '{point.name}',
                             formatter: function () {
-                                // console.log(this.point.properties);
-                                if (this.point.properties !== undefined) {
-                                    // let totalProject = projects[this.point.properties.code].total;
-                                    let totalProject = municipality_project_data_values[this.point.properties.code];
 
-                                    if (totalProject === undefined) {
-                                        totalProject = 0;
-                                    }
+                                console.log(this.point.properties);
+                                if (this.point.properties !== undefined) {
+                                    let totalProject = projects[this.point.properties.code].total;
+
                                     return this.point.name + " : " + totalProject;
                                 }
 

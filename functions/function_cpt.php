@@ -1,8 +1,5 @@
 <?php
 
-
-require_once('cpt/course_cpt.php');
-
 require_once('custom_function.php');
 
 function admin_enqueue_datepicker_styles()

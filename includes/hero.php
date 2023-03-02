@@ -68,22 +68,31 @@
             <div class="col-xl-2 col-lg-3 col-md-4">
                 <div class="icon-box hoverable wow fadeInLeft" data-target="#modal-service-to-citizen"
                      data-toggle="modal">
-                    <img src="<?php echo get_stylesheet_directory_uri() . '/assets/img/front/d56b07fa25b1c546b415c695ae197aef.png' ?>" alt="">
+                    <img src="<?php echo get_stylesheet_directory_uri() . '/assets/img/front/d56b07fa25b1c546b415c695ae197aef.png' ?>"
+                         alt="">
                     <h3><a href="<?= bloginfo('url') ?>/Service-to-citizen"><?= lang('service-to-citizen') ?></a>
                     </h3>
                 </div>
             </div>
 
-            <div class="col-xl-2 col-lg-3 col-md-4">
-                <div class="icon-box hoverable wow fadeInLeft">
-                    <img src="<?php echo get_stylesheet_directory_uri() . '/assets/img/front/training.png' ?>" alt="">
-                    <h3><a href="<?= bloginfo('url') ?>/plataforma-de-treinamentu"><?= lang('training-platform') ?></a>
-                    </h3>
+            <?php
+            if (get_option('setting_settings_general')['setting_enable_training_platform']) {
+                ?>
+                <div class="col-xl-2 col-lg-3 col-md-4">
+                    <div class="icon-box hoverable wow fadeInLeft">
+                        <img src="<?php echo get_stylesheet_directory_uri() . '/assets/img/front/training.png' ?>" alt="">
+                        <h3><a href="<?= bloginfo('url') ?>/plataforma-de-treinamentu"><?= lang('training-platform') ?></a>
+                        </h3>
+                    </div>
                 </div>
-            </div>
+                <?php
+            }
+            ?>
+
             <div class="col-xl-2 col-lg-3 col-md-4">
                 <div class="icon-box hoverable wow fadeInLeft">
-                    <img src="<?php echo get_stylesheet_directory_uri() . '/assets/img/front/fd06b8ea02fe5b1c2496fe1700e9d16c.png' ?>" alt="">
+                    <img src="<?php echo get_stylesheet_directory_uri() . '/assets/img/front/fd06b8ea02fe5b1c2496fe1700e9d16c.png' ?>"
+                         alt="">
                     <h3><a href="<?= bloginfo('url') ?>/Mapa"><?= lang('map') ?></a></h3>
                 </div>
             </div>

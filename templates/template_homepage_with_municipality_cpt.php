@@ -1,6 +1,6 @@
 <?php
 /*
-  Template Name: The Homepage
+  Template Name: New Homepage
  */
 ?>
 <?php
@@ -21,7 +21,7 @@ get_header();
                             <!--                        <h5 class="card-title"-->
                             <!--                            style="color: #960707 !important;">--><?php //echo $lang['menu']['municipality']; ?>
                             <!--                        </h5>-->
-                            <div id="modal_municipality_list">Loading...</div>
+                            <!--                            <div id="modal_municipality_list">Loading...</div>-->
 
 
                             <!--                            <div class="tt--map" style="border: #ccc; clear: both">-->
@@ -37,7 +37,65 @@ get_header();
                             <!--                                </div>-->
                             <!--                            </div>-->
 
+                            <?php
+                            $args = array(
+                                'post_type' => array('municipality'),
+                                'nopaging' => true,
+                                'post_status' => 'publish',
+                                'order' => 'ASC',
+                                'orderby' => 'title',
+                            );
 
+                            $the_query = new  WP_Query($args);
+
+                            if ($the_query->have_posts()) {
+                                while ($the_query->have_posts()) {
+                                    $the_query->the_post();
+                                    $thumbnail = get_the_post_thumbnail_url(get_the_ID());
+                                    if (!$thumbnail) {
+                                        $thumbnail = get_stylesheet_directory_uri() . "/assets/img/corosall4.jpg";
+                                    }
+
+                                    if(WPGlobus::Config()->language=='tm'){
+                                        $website = get_post_meta($post->ID, 'municipality_profilewebsite', true);
+                                    }else{
+                                        $website = get_post_meta($post->ID, 'municipality_profilewebsite', true).WPGlobus::Config()->language;
+                                    }
+
+                                    $population = get_post_meta($post->ID, 'municipality_profilepopulation', true);
+                                    $surface = get_post_meta($post->ID, 'municipality_profilesurface', true);
+                                    $language = get_post_meta($post->ID, 'municipality_profilelanguage', true);
+                                    $capital = get_post_meta($post->ID, 'municipality_profilecapital', true);
+                                    ?>
+                                    <div class="view view-first">
+                                        <img src="<?= $thumbnail ?>">
+                                        <div class="mask">
+
+                                            <a target="_blank"
+                                               href="<?= $website?>" class="info">
+                                                <h2>
+                                                    <?=the_title()?>
+
+                                                </h2>
+                                                <div class="municipality-tooltip">
+                                                    <span>
+                                                        Population: <?= $population ?> <br>
+                                                        Area: <?= $surface ?> <br>
+                                                        Language: <?= $language ?> <br>
+                                                        Capital: <?= $capital ?> <br>
+                                                    </span>
+                                                </div>
+                                            </a>
+
+
+                                        </div>
+                                    </div>
+                                    <?php
+                                }
+
+                            }
+                            wp_reset_postdata();
+                            ?>
                         </div>
                     </div>
 
@@ -60,15 +118,17 @@ get_header();
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-body">
-                            <div class="tt--map" style="border: #ccc; clear: both">
+                            <div style="border: #ccc; clear: both">
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <div id="map-container">Loading...</div>
+                                        <div id="map-container"><img style="width: 25px;"
+                                                                     src="<?php echo get_stylesheet_directory_uri() . '/assets/img/sdg_circle.svg' ?>">
+                                        </div>
                                     </div>
-                                    <div class="col-md-12 map-icon pt-5 border-top">
-                                        <ul class="map-data add_li list-inline" style="list-style: none;">Loading...
-                                        </ul>
-                                    </div>
+                                    <!--                                    <div class="col-md-12 map-icon pt-5 border-top">-->
+                                    <!--                                        <ul class="map-data add_li list-inline" style="list-style: none;">Loading...-->
+                                    <!--                                        </ul>-->
+                                    <!--                                    </div>-->
 
                                 </div>
                             </div>

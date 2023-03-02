@@ -90,7 +90,7 @@ function getNewAccessTokenUsingLeagueOAuth2($access_code)
         'redirectUri' => REDIRECT_URI,
         'urlAuthorize' => $AUTHORIZATION_ENDPOINT,
         'urlAccessToken' => TOKEN_ENDPOINT,
-        'urlResourceOwnerDetails' => 'https://api.coursera.org/api/businesses.v1/'
+        'urlResourceOwnerDetails' => 'https://api.coursera.org/api/businesses.v1/',
     ]);
 
     try {
@@ -98,7 +98,7 @@ function getNewAccessTokenUsingLeagueOAuth2($access_code)
         // Try to get an access token using the authorization code grant.
         $accessToken = $provider->getAccessToken('authorization_code', [
             'code' => $access_code,
-            'access_token' => 'CiBUogTYNByz3N6GvQxPJJwuvB1lHwA8_PdhplnLbSIc5BImCNDjxDUYgYCAgEAg97mAl6wwKhCUadT0GlAopzkVZWbPs-NBeAA',
+            'access_token' => 'CiCnSqcUIlx6WG7M9NvbStBUSM_SIvMPoj0OwGipe7vX3xImCNDjxDUYgYCAgEAg6rvSm7UwKhCUadT0GlAopzkVZWbPs-NBeAA',
         ]);
 
         echo 'Access Token: ' . $accessToken->getToken() . "<br>";
@@ -118,7 +118,6 @@ function getNewAccessTokenUsingLeagueOAuth2($access_code)
         // Failed to get the access token or user details.
         exit($e->getMessage());
 
-
     }
 
 } //getNewAccessTokenUsingLeagueOAuth2
@@ -137,7 +136,7 @@ function getNewAccessTokenUsingCurl()
         'client_secret' => get_general_setting('setting_api_coursera_client_secret'),
         'Access_type' => 'offline',
         'grant_type' => 'authorization_code',
-        'code' => 'H0zWoJbTJf6OAZhBYAg_bd8KeCkO8gx-4ljKPaGdiKM',
+        'code' => 'jCVRwqdDX5O8tiug1h8tQj5YyfKOUOVHTdNaU08E-tk',
     );
 
 

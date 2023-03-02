@@ -510,8 +510,9 @@ abstract class AbstractProvider
 
         $method  = $this->getAccessTokenMethod();
         $url     = $this->getAccessTokenUrl($params);
-        $options = $this->optionProvider->getAccessTokenOptions($this->getAccessTokenMethod(), $params);
 
+        $options = $this->optionProvider->getAccessTokenOptions($this->getAccessTokenMethod(), $params);
+//        var_dump($options);
         return $this->getRequest($method, $url, $options);
     }
 
@@ -538,6 +539,7 @@ abstract class AbstractProvider
 
         $response = $this->getParsedResponse($request);
 
+//        var_dump($params);
 
         if (false === is_array($response)) {
             throw new UnexpectedValueException(
