@@ -2,20 +2,26 @@
 
 require_once('custom_function.php');
 
-function admin_enqueue_datepicker_styles()
+function admin_enqueue_styles()
 {
-//        wp_enqueue_style('jquery-ui-style', '//ajax.googleapis.com/ajax/libs/jqueryui/1.8.1/themes/smoothness/jquery-ui.css', true);
-
+    if(get_current_screen()->id == 'balkaun-uniku'){
+        wp_enqueue_style('leaflet_css', get_template_directory_uri(). '/assets/map/css/leaflet.css',true);
+        wp_enqueue_style('leaflet_css_map', get_template_directory_uri(). '/assets/map/css/leaflet_map.css',true);
+    }
 }
 
-add_action('admin_enqueue_scripts', 'admin_enqueue_datepicker_styles');
+add_action('admin_enqueue_scripts', 'admin_enqueue_styles');
 
-function admin_enqueue_datepicker_scripts()
+function admin_enqueue_scripts()
 {
-//        wp_enqueue_script('jquery-ui-datepicker');
+    if(get_current_screen()->id == 'balkaun-uniku'){
+        wp_enqueue_script('leafelt_js', get_template_directory_uri(). '/assets/map/js/leaflet.js', array('jquery'), '', true);
+        wp_enqueue_script('leafelt_js_load_map', get_template_directory_uri(). '/assets/map/js/poi_admin.js', array('jquery'), '', true);
+        wp_enqueue_script('leafelt_js_swall', get_template_directory_uri(). '/assets/js/sweetalert2@10.js', array('jquery'), '', true);
+    }
 }
 
-add_action('admin_enqueue_scripts', 'admin_enqueue_datepicker_scripts');
+add_action('admin_enqueue_scripts', 'admin_enqueue_scripts');
 
 /*
  * +++++++++++++++++++++++++++++++++++++++++++++

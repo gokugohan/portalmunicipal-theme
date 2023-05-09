@@ -23,6 +23,7 @@ position: absolute;
 ">
                 <div class="container breadcrumbs-custom-container">
                     <div class="breadcrumbs-custom-main text-left">
+
                         <h2 class="text-white font-weight-bold"><?= the_title(); ?></h2>
                     </div>
 

@@ -37,6 +37,8 @@ if (!function_exists('municipality_panel_wp_customize_register')) {
 
         section_header_education_platform($wp_customize, 'municipality_theme_panel', 'education_platform_header_section', 4);
 
+        section_balkaun_uniku($wp_customize, 'municipality_theme_panel', 'balkaun_uniku_section', 4);
+
         section_footer($wp_customize, 'municipality_theme_panel', 'municipality_footer_section', 5);
         section_address($wp_customize, 'municipality_theme_panel', 'municipality_address_section', 6);
 
@@ -837,6 +839,33 @@ if (!function_exists('municipality_panel_wp_customize_register')) {
 
 
     } // section_header_education_platform
+
+
+    function section_balkaun_uniku($wp_customize, $panel, $section, $priority)
+    {
+        $wp_customize->add_section($section, array(
+            'title' => 'Balkaun Úniku',
+            'priority' => $priority,
+            'panel' => $panel
+        ));
+
+
+
+        // Setting: Sponsor 1 Url
+        $wp_customize->add_setting('municipality_balkaun_uniku_hero', array(
+            'type' => 'theme_mod',
+            'transport' => 'refresh', // Options: refresh or postMessage.
+            'capability' => 'edit_theme_options',
+            'sanitize_callback' => 'esc_attr'
+        ));
+        $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'municipality_balkaun_uniku_hero', array(
+            'label' => 'Image',
+            'description' => 'Hero Image. Upload one here! Logo should be at least 150 × 150 pixels',
+            'section' => $section,
+            'settings' => 'municipality_balkaun_uniku_hero',
+        )));
+
+    } // section_balkaun_uniku
 
     function section_footer($wp_customize, $panel, $section, $priority)
     {

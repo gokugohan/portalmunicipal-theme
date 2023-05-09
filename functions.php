@@ -11,6 +11,8 @@ require_once(ROOT . '/functions/customizer.php');
 require_once(dirname(__FILE__) . '/class-wp-bootstrap-navwalker.php');
 
 require_once(dirname(__FILE__) . '/settings/setting.php');
+require_once(dirname(__FILE__) . '/settings/setting_balkaun.php');
+
 $is_faq_enabled = get_option('setting_settings_general')['setting_enable_faq'];
 //$is_library_enabled = get_option('setting_settings_general')['setting_enable_library'];
 
@@ -18,9 +20,16 @@ $is_faq_enabled = get_option('setting_settings_general')['setting_enable_faq'];
 require_once(dirname(__FILE__) . '/functions/cpt/municipality_cpt.php');
 require_once(dirname(__FILE__) . '/functions/cpt/courses_cpt.php');
 
+
+require_once(dirname(__FILE__) . '/functions/cpt/balkaun_uniku_service_cpt.php');
+require_once(dirname(__FILE__) . '/functions/cpt/balkaun_uniku_poi_cpt.php');
+require_once(dirname(__FILE__) . '/functions/cpt/balkaun_uniku_values_cpt.php');
+require_once(dirname(__FILE__) . '/functions/function_cpt.php');
+
 if ($is_faq_enabled) {
     require_once(dirname(__FILE__) . '/functions/cpt/faq_cpt.php');
 }
+
 
 require_once(dirname(__FILE__) . '/functions/create_coursera_users_table.php');
 require_once(dirname(__FILE__) . '/functions/create_coursera_access_token_table.php');
@@ -40,6 +49,7 @@ function register_menu()
             'menu-principal-quick-links' => __('Quick links', 'municipality'),
             'menu-training-platform-external' => __('Training platform external links', 'municipality'),
             'menu-training-platform-legal' => __('Training platform legal links', 'municipality'),
+            'balkaun-uniku' => __('Balkaun Uniku Menu', 'municipality'),
         )
     );
 }
@@ -72,6 +82,21 @@ function get_menu_by_name($name)
     );
 }
 
+// bootstrap navigation menu register function for menu principal
+function balkaun_uniku_nav_menu()
+{
+    wp_nav_menu(array(
+            'theme_location' => 'balkaun-uniku',
+            'container' => false,
+            'depth' => 2, // 1 = no dropdowns, 2 = with dropdowns.
+            'container_class' => 'collapse navbar-collapse',
+            'container_id' => 'menu-primary-header-menu',
+            'menu_class' => '',
+            'fallback_cb' => 'WP_Bootstrap_Navwalker::fallback',
+            'walker' => new WP_Bootstrap_Navwalker(),
+        )
+    );
+}
 
 function get_menu_quick_links()
 {
@@ -102,6 +127,27 @@ function get_menu_training_platform_legal_links()
     );
 }
 
+/*
+ *
+ *      <nav>
+            <div class="container">
+                <ol>
+                    <li><a href="index.html">Home</a></li>
+                    <li>About</li>
+                </ol>
+            </div>
+        </nav>
+ */
+function get_balkaun_uniku_breadcrumb() {
+
+    echo '<nav><div class="container">';
+    echo '<ol>';
+    echo '<li><a href="'.home_url().'/balkaun-uniku" rel="nofollow">'.lang('home').'</a></li>';
+    echo '<li>'.get_the_title().'</li>';
+    echo '</ol>';
+    echo '</container>';
+    echo '</nav>';
+}
 
 
 function restrict_admin_access()
@@ -195,7 +241,6 @@ function excerpt($limit = 100)
     $excerpt = explode(' ', get_the_excerpt(), $limit);
     if (count($excerpt) >= $limit) {
         array_pop($excerpt);
-
         $excerpt = implode(" ", $excerpt); // . ' <a href='.the_permalink().'>(...)</a>';
     } else {
         $excerpt = implode(" ", $excerpt);
@@ -204,9 +249,17 @@ function excerpt($limit = 100)
     return $excerpt;
 }
 
-function mostrar_poucos($limit = 500)
+function mostrar_poucos($limit = 5)
 {
+    $post = wp_trim_words( strip_shortcodes( get_the_content() ), $limit );
+
+    var_dump($post);
+    return $post;
+
     $excerpt = explode(' ', get_the_content(), $limit);
+    var_dump(count($excerpt) >= $limit);
+    var_dump(count($excerpt));
+
     if (count($excerpt) >= $limit) {
         array_pop($excerpt);
         $excerpt = implode(" ", $excerpt);
@@ -287,6 +340,19 @@ function show_default_avatar()
 function get_setting_value($key)
 {
     return get_option('setting_settings_general')["$key"];
+}
+
+function get_bu_setting($key,$image=false){
+
+    $content = get_option('bu_setting')[$key];
+
+    if($image){
+        return  $content;
+    }
+    $content = apply_filters( 'the_content', $content );
+    $content = str_replace( ']]>', ']]&gt;', $content );
+
+    return $content;
 }
 
 
@@ -667,8 +733,6 @@ function get_faq($category = 'portal')
     );
 
     return new WP_Query($args);
-
-
 }
 function getCourses($category = 'business',$post_per_page=null)
 {

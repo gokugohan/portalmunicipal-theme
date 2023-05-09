@@ -1,8 +1,8 @@
 <?php
 $hero_background_image = get_theme_mod('municipality_hero_image');
-if ($hero_background_image == null) {
-    $hero_background_image = get_stylesheet_directory_uri() . '/assets/img/kotalama_0.jpg';
-}
+//if ($hero_background_image == null) {
+//    $hero_background_image = get_stylesheet_directory_uri() . '/assets/img/kotalama_0.jpg';
+//}
 //
 ?>
 
@@ -123,7 +123,7 @@ if ($hero_background_image == null) {
             $hero_background_image = get_stylesheet_directory_uri() . '/assets/img/lib3.jpg';
         }
 ?>
-            #hero {
+            #hero{
                 background-image: url("<?= $hero_background_image ?>");
                 background-size: cover;
                 background-attachment: fixed;
@@ -155,12 +155,24 @@ if ($hero_background_image == null) {
                     }else{
                 ?>
             #hero {
+                <?php
+                if($hero_background_image){
+                    ?>
                 background-image: url("<?= $hero_background_image ?>");
                 background-size: cover;
 
                 background-attachment: fixed;
                 background-repeat: no-repeat;
                 /*height: 100vh;*/
+                    <?php
+                }else{
+                    ?>
+                background: rgb(14,29,52);
+                background: linear-gradient(0deg, rgba(14, 29, 52,0) 0%, rgba(150, 8, 7 ,.57) 100%);
+                    <?php
+                }
+                ?>
+
             }
                 <?php
                     }
@@ -187,6 +199,10 @@ if ($hero_background_image == null) {
                 .title a {
                     font-size: 16px;
                 }
+            }
+
+            #hero .icon-box:hover img.img-filter{
+                filter: brightness(0) invert(1) !important;
             }
 
         </style>
@@ -254,7 +270,7 @@ if ($hero_background_image == null) {
 
         <style>
             .cta {
-                background: linear-gradient(rgba(150, 8, 7, .1), rgba(150, 8, 7, .25)), url("<?php echo get_stylesheet_directory_uri() . '/assets/img/corosal.jpg' ?>") fixed center center;
+                background: linear-gradient(rgba(14, 29, 52, 0.6), rgba(14, 29, 52, 0.8)), url("<?php echo get_stylesheet_directory_uri() . '/assets/img/corosal.jpg' ?>") fixed center center;
             }
 
 

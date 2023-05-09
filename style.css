@@ -14,7 +14,7 @@ Description:    There is no one who loves pain itself, who seeks after it and wa
 ------------------ Scrollbar
  */
 body::-webkit-scrollbar {
-    width: 1em;
+    /* width: 1em; */
 
 }
 
@@ -23,7 +23,7 @@ body::-webkit-scrollbar-track {
 }
 
 body::-webkit-scrollbar-thumb {
-    background-color: #c30734;
+    /* background-color: #c30734; */
     border-radius: 5px;
     /*outline: 1px solid rgba(195, 7, 52, 0.3);*/
 }
@@ -64,6 +64,49 @@ body::-webkit-scrollbar-thumb {
 
 }
 
+
+.section-header {
+    text-align: center;
+    padding: 30px 0;
+    position: relative;
+}
+
+.section-header span {
+    position: absolute;
+    top: 46px;
+    color: rgba(14, 29, 52, 0.06);
+    left: 0;
+    right: 0;
+    z-index: 1;
+    font-weight:700;
+    font-size: 50px;
+    text-transform: uppercase;
+    line-height: 0;
+}
+
+.section-header h2 {
+    text-transform: uppercase;
+    color: #960807;
+    position: relative;
+    z-index: 2;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    position: relative;
+    font-weight: 400;
+}
+
+.section-header h2:after {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 50px;
+    height: 3px;
+    background: #a01f1f;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+}
 
 /* ACCORDION */
 

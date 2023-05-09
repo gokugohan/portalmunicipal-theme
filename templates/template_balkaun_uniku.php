@@ -1,275 +1,358 @@
 <?php
 /*
-  Template Name: The Service Municipality page
+  Template Name: Balkaun Úniku Page
  */
-get_header();
+
+include "balkaun_uniku_header.php";
 ?>
-<div class="head_bg">
-    <div id="overlay1"></div>
-    <h2 class="profile_name"></h2>
-</div>
+    <style>
 
+        .image-localizasaun {
+            max-height: 500px;
+        }
 
-<div class="muni_profile">
-    <span><?php echo lang('agencies_departments'); ?></span> <span class="sector_name"></span> | <span
-            class="profile_name"></span>
-</div>
-<section class="section bg-gray-100">
-    <div class="container-fluid text-center">
-        <!--        <h4 class="py-3">--><?php //echo $lang['menu']['agencies_departments']; ?><!--</h4>-->
-        <!--        <hr>-->
-        <div class="pt-4 table-responsive">
-            <div class="row" style=" margin-left: 0px !important;
-        margin-right: 0px !important;">
+        #hero-overlay {
+            position: absolute;
+            height: 100vh;
+            width: 100%;
+            background: #0000006b;
+            z-index: 0;
+            top: 0;
+        }
 
-                <div class="col-md-8">
-                    <div class="result"></div>
-                </div>
-                <div class="col-md-4">
-                    <div id="map" class="wow slideInUp">
-                        <div class="map-attribute-logo">
-                            <a href="<?= $base_url ?>" class="btn-view-attribute-info"
-                               title="Timor-Leste Portal Municipal plataforma de dados para o desenvolvimento de Timor-Leste">
-                                <img src="<?php echo get_stylesheet_directory_uri() . '/assets/img/logo-map.svg'?>"
-                                     class="img-responsive"/>
-                            </a>
-                        </div>
-                    </div>
-                </div>
+        .index-0 {
+            z-index: 0;
+        }
 
-            </div>
-        </div>
-    </div>
+        .index-1 {
+            z-index: 1;
+        }
 
-
-</section>
-
-
-<input type="hidden" name="municipalityId" id="municipalityId">
-<input type="hidden" name="municipalityName" id="municipalityName">
-
-<!-- Modal About-->
-<div id="modal-about" class="modal fade" role="dialog">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header border-bottom-0">
-                <h4 class="modal-title"><?= lang('about_municipality_portal')?></h4>
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-            </div>
-            <div class="modal-body p-0">
-                <div class="head_bg">
-                    <div id="overlay1"></div>
-                    <div class="corsal-div">
-                        <h2 class="text-center white-text"><?= lang('about_municipality_portal') ?></h2>
-                        <p><?php lang('second_description') ?></p>
-                    </div>
-                    <!--        <h2 class="profile_name">--><?php //echo $lang['about']['about_us']; ?><!--</h2>-->
-                    <!--        <p>--><?php //echo $lang['home_page']['second_description']; ?><!--</p>-->
-                </div>
-
-                <div class="container-fluid" style="margin-top: 60px; margin-bottom: 60px;">
-                    <h5 class="d1"><?php echo lang('about_question1'); ?></h5>
-                    <hr class="linebold">
-                    <p class="ppad30"><br>
-                        <?php echo lang('about_answer1') ?>
-                    </p><br><br>
-
-
-                    <h5 class="d1"><?php echo lang('about_question2'); ?></h5>
-                    <hr class="linebold">
-                    <p class="ppad30"><br>
-                        <?php echo lang('about_answer2') ?>
-                    </p><br><br>
-
-                    <h5 class="d1"><?php echo lang('about_question3'); ?></h5>
-                    <hr class="linebold">
-                    <p class="ppad30"><br>
-                        <?php echo lang('about_answer3') ?>
-                    </p><br><br>
-
-                    </p>
-                </div>
-
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Modal About-->
-
-
-
-<!-- Modal FAQ-->
-<div id="modal-faq" class="modal fade" role="dialog">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header border-bottom-0">
-                <h4 class="modal-title"><?php echo $lang['faq']; ?></h4>
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-            </div>
-            <div class="modal-body p-0">
-                <div class="head_bg">
-                    <div id="overlay1"></div>
-                    <h2 class="profile_name"><?php echo $lang['faq']; ?></h2>
-                </div>
-                <div class="container-fluid">
-                    <div class="faqs-list-container"></div>
-                </div>
-
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Modal FAQ-->
-
-<!-- Modal Data Catalog-->
-<div id="modal-data-catalog" class="modal fade" role="dialog">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title"><?php echo $lang['menu']['data_catalog']; ?></h4>
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-            </div>
-            <div class="modal-body">
-                <div class="row" id="box3">
-                    <div class="col-md-6"><a class="acn-head" target="_blank"
-                                             href="http://portalmunicipal.r2m.tl/datasearch">
-                        </a>
-                        <div class="box3">
-                            <a class="acn-head" target="_blank" href="<?php echo $base_url_others; ?>datasearch">
-                                <div class="box-circle"><img class="nor-icon" src="<?php echo get_stylesheet_directory_uri() . '/assets/img/box22.png'?>"
-                                                             style="margin: 8px 8px;">
-                                    <img class="hov-icon" src="<?php echo get_stylesheet_directory_uri() . '/assets/img/ii/icon-1.png'?>"
-                                         style="margin: 8px 8px;display: none;">
-                                </div>
-                                <h2 class="hh acn-head"><?php echo lang('data_bank');?></h2>
-                                <div class="hh2">
-                                    <?php echo lang('data_bank_description') ?>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <a class="acn-head" target="_blank" href="<?php echo $base_url_others; ?>dashboard">
-                        </a>
-                        <div class="box3">
-                            <a class="acn-head" target="_blank" href="<?php echo $base_url_others; ?>dashboard">
-                                <div class="box-circle"><img class="nor-icon" src="<?php echo get_stylesheet_directory_uri() . '/assets/img/box33.png'?>"
-                                                             style="margin: 13px 12px;"><img class="hov-icon"
-                                                                                             src="<?php echo get_stylesheet_directory_uri() . '/assets/img/ii/icon-2.png'?>"
-                                                                                             style="margin: 13px 12px;">
-                                </div>
-
-                                <h2 class="hh acn-head"><?php echo lang('databysector'); ?></h2>
-                                <div class="hh2">
-                                    <?php echo lang('databysector_description'); ?>
-                                </div>
-                            </a>
-
-                        </div>
-                    </div>
-                    <!--<div class="col-md-4">
-                        <a class="acn-head" href="project.php">
-                            <div class="box3">
-                                <div class="box-circle"><img class="nor-icon" src="images/box1.png"
-                                                             style="margin: 8px 8px;"><img class="hov-icon"
-                                                                                           src="images/ii/icon-3.png"
-                                                                                           style="margin: 13px 12px;">
-                                </div>
-                                <h2 class="hh acn-head"><?php /*echo $lang['home_page']['municipalities']; */ ?></h2>
-                                <div class="hh2"><?php /*echo $lang['home_page']['para1']; */ ?></div>
-                            </div>
-                        </a>
-                    </div>-->
-                </div>
-            </div>
-        </div>
-
-    </div>
-</div>
-<!-- Modal Data Catalog-->
-
-<!-- Modal Library-->
-<div id="modal-library" class="modal fade" role="dialog">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title"><?php echo $lang['menu']['library']; ?></h4>
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-            </div>
-            <div class="modal-body">
-                <div class="home-tab-container">
-                    <div class="home-tab-text">
-                        <div class="home-tab-tabs">
-                            <ul id="home-tab-tabs-link" class="home-tab-tabs-link library-tab-list with-triangle">
-                                <li class="active"
-                                    data-tab="tab-content-category-report">
-                                    <a href="javascript:void(0)"> <?= $lang['library']['reports'] ?></a>
-                                </li>
-                                <li
-                                        data-tab="tab-content-category-law">
-                                    <a href="javascript:void(0)"> <?= $lang['library']['legislation'] ?></a>
-                                </li>
-                                <li
-                                        data-tab="tab-content-category-portal_guidelines">
-                                    <a href="javascript:void(0)"> <?= $lang['library']['portal_guidelines'] ?></a>
-                                </li>
-                                <li data-tab="tab-content-category-others">
-                                    <a href="javascript:void(0)"> <?= $lang['library']['others'] ?></a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="box-dynamic-slide">
-                            <div class="library-content"></div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </div>
-</div>
-<!-- Modal Library-->
-
-<div class="modal fade" id="modal-municipality-project-detail" role="dialog">
-    <div class="modal-dialog modal-lg" style="max-width: 60%;">
-        <div class="modal-content">
-            <div class="modal-header">
-				<span style="padding-left: 15px;">
-				 <img src="" id="areaFlag" style="width:auto;height:25px"/>
-				</span>
-                <span style="text-transform:uppercase;padding-left: 15px;" id="panel_area_name">
-
-
-				</span>&nbsp;<span id="project_count"></span>
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h6 class="modal-title"></h6>
-            </div>
-            <div class="modal-body">
-                <div class="container demo" id="pInfo">
-
-                    <!-- container -->
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div id="scrollUp" style="bottom: 45px; right: 24px;">
-    <a class="btn btn-floating">
-        <i class="fa fa-chevron-up"></i>
-    </a>
-</div>
+    </style>
 <?php
-get_footer();
+$front_logo = get_bu_setting('bu_front_logo', true);
+
+$logo = $front_logo ? $front_logo : get_stylesheet_directory_uri() . '/assets/img/front/d56b07fa25b1c546b415c695ae197aef.png';
+
+
 ?>
+    <div class="breadcrumbs front-hero">
+        <div class="page-header d-flex align-items-center">
+            <div class="container position-relative">
+                <div class="row d-flex justify-content-center">
+                    <div class="col-lg-12 text-center">
+                        <div class="hero-logo">
+                            <img class="header-logo img-fluid mb-4" src="<?= $logo ?>" alt="MAE">
+                        </div>
+                        <!--                        <h2 data-aos="fade-up">Balkaun Úniku</h2>-->
+                        <p data-aos="fade-up" data-aos-delay="100"><?= the_excerpt() ?></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <svg class="hero-waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+         viewBox="0 24 150 28 " preserveAspectRatio="none">
+        <defs>
+            <path id="wave-path" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z">
+        </defs>
+        <g class="wave1">
+            <use xlink:href="#wave-path" x="50" y="3" fill="rgba(255,255,255, .1)">
+        </g>
+        <g class="wave2">
+            <use xlink:href="#wave-path" x="50" y="0" fill="rgba(255,255,255, .2)">
+        </g>
+        <g class="wave3">
+            <use xlink:href="#wave-path" x="50" y="9" fill="#fff">
+        </g>
+    </svg>
+
+    <!-- ======= Hero Section ======= -->
+
+    <!--    <section id="hero" class="hero d-flex align-items-center">-->
+    <!--        <div id="hero-overlay" class="index-0"></div>-->
+    <!--        <div class="container index-1">-->
+    <!--            <div class="row gy-4 d-flex justify-content-between">-->
+    <!--                <div class="col-lg-12 order-lg-1 d-flex flex-column justify-content-center">-->
+    <!--                    <div class="text-center">-->
+    <!--                        <div class="hero-logo">-->
+    <!---->
+    <!--                            <img class="header-logo img-fluid mb-4"-->
+    <!--                                 src="--><?//= $logo ?><!--"-->
+    <!--                                 alt="MAE">-->
+    <!--                        </div>-->
+    <!---->
+    <!--                        <h2 data-aos="fade-up">Balkaun Úniku</h2>-->
+    <!--                        <p data-aos="fade-up" data-aos-delay="100">-->
+    <!--                            --><?//= the_excerpt() ?>
+    <!--                        </p>-->
+    <!---->
+    <!--                    </div>-->
+    <!--                </div>-->
+    <!--            </div>-->
+    <!--        </div>-->
+    <!--    </section>-->
+    <!-- End Hero Section -->
+
+    <main id="main">
+
+        <section class="bg-light">
+            <div class="container" data-aos="fade-up">
+                <div class="section-header">
+                    <span>Balkaun Úniku</span>
+                    <h2><?=lang('what_is_balkaun_uniku')?></h2>
+                </div>
+                <div class="row gy-4 features-item">
+                    <?php
+                    $about_image = get_bu_setting('bu_about_image', true);
+                    if ($about_image) {
+                        ?>
+                        <div class="col-md-6 order-1 order-md-2"
+                             data-aos="fade-left">
+                            <div class="wp-block-image">
+                                <img src="<?= $about_image ?>" class="img-fluid" alt="">
+                            </div>
+
+                        </div>
+                        <div class="col-md-6 text-justify order-2 order-md-1"
+                             data-aos="fade-right"
+                        >
+                            <?= get_bu_setting('about_balkaun_' . WPGlobus::Config()->language) ?>
+                        </div>
+                        <?php
+
+                    } else {
+                    ?>
+                    <div class="col-md-12 text-justify aos-init aos-animate" data-aos="zoom-in-up" data-aos-delay="100"
+                    ">
+                    <?= get_bu_setting('about_balkaun_' . WPGlobus::Config()->language) ?>
+                </div>
+                <?php
+                }
+
+                ?>
+
+            </div>
+            </div>
 
 
-</body>
-</html>
+        </section>
+
+
+        <section>
+            <div class="container" data-aos="fade-up">
+                <div class="section-header">
+                    <span>Balkaun Úniku</span>
+                    <h2><?=lang('vision_and_mission_institutional')?></h2>
+                </div>
+                <div class="row">
+                    <div class="col-md-6" data-aos="fade-right">
+                        <div class="text-justify">
+                            <h3>Visaun</h3>
+                            <?= get_bu_setting('balkaun_visaun_' . WPGlobus::Config()->language) ?>
+                        </div>
+                    </div>
+                    <div class="col-md-6" data-aos="fade-left">
+                        <div class="text-justify">
+                            <h3>Misaun</h3>
+                            <?= get_bu_setting('balkaun_mission_' . WPGlobus::Config()->language) ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </section>
+
+        <section class="bg-wave">
+            <div class="container" data-aos="fade-up">
+                <div class="section-header">
+                    <span>Balkaun Uniku</span>
+                    <h2><?=lang('values')?> <br>
+                        <!--                    <small>We believe in Transparency, Inclusion, Excellence</small>-->
+                    </h2>
+                </div>
+
+
+                <ol class="list-numbers row px-3 mb-4">
+                    <?php
+                    $valores_query = array(
+                        'post_type' => 'balkaun-uniku-values',
+                        'post_status' => 'publish',
+                        'nopaging' => true,
+
+                    );
+
+                    $valores_query = new WP_Query($valores_query);
+
+                    if ($valores_query->have_posts()) {
+                        ?>
+                        <?php
+                        while ($valores_query->have_posts()) {
+                            $valores_query->the_post();
+                            ?>
+                            <li class="col-lg-4 mb-2 on-hover">
+                                <h5><?= the_title() ?></h5>
+                                <p class="text-small text-muted"><?= the_content() ?></p>
+                            </li>
+
+                            <?php
+                        }
+                        ?>
+                        <?php
+
+                    }
+                    wp_reset_postdata();
+                    ?>
+
+
+                </ol>
+            </div>
+        </section>
+
+
+        <!--        <section>-->
+        <!--            <div class="container">-->
+        <!--                --><?php
+        //                if (have_posts()) {
+        //                    while (have_posts()) {
+        //                        the_post();
+        //                        ?>
+        <!--                        <div class="text-justify">-->
+        <!--                            --><?php //the_content(); ?>
+        <!--                        </div>-->
+        <!--                        --><?php
+        //                    }
+        //                }
+        //
+        //                ?>
+        <!--            </div>-->
+        <!--        </section>-->
+
+
+        <!-- ======= Services Section ======= -->
+        <section id="service" class="services bg-light">
+            <div class="container" data-aos="fade-up">
+
+                <div class="section-header">
+                    <span>Balkaun Úniku</span>
+                    <h2><?=lang('services')?></h2>
+
+                </div>
+
+                <div class="row gy-4">
+                    <?php
+                    $services = array(
+                        'post_type' => 'balkaununiku',
+                        'post_status' => 'publish',
+                        'nopaging' => false,
+                        'posts_per_page' => 6,
+
+                    );
+
+                    $service_query = new WP_Query($services);
+
+                    if ($service_query->have_posts()) {
+                        ?>
+                        <?php
+                        while ($service_query->have_posts()) {
+                            $service_query->the_post();
+                            $feature_image = wp_get_attachment_url(get_post_thumbnail_id($post->ID));
+                            if (has_post_thumbnail($post) && $feature_image != null) {
+                                $post_image_feature_url = $feature_image;
+                            } else {
+                                $post_image_feature_url = get_template_directory_uri() . "/assets/img/front/teste.png";
+                            }
+                            ?>
+                            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                                <div class="card">
+                                    <div class="card-img">
+                                        <img src="<?php echo $post_image_feature_url; ?>" alt="" class="img-fluid">
+                                    </div>
+                                    <h3><a href="<?php echo the_permalink() ?>"
+                                           class="stretched-link"><?= the_title() ?></a></h3>
+                                    <p><?= excerpt(25) ?></p>
+                                </div>
+                            </div>
+                            <?php
+                        }
+                        ?>
+                        <?php
+
+                    }
+                    wp_reset_postdata();
+                    ?>
+
+                </div>
+
+            </div>
+        </section><!-- End Services Section -->
+
+
+        <!-- ======= Frequently Asked Questions Section ======= -->
+        <section id="faq" class="faq">
+            <div class="container" data-aos="fade-up">
+
+                <div class="section-header">
+                    <span>Balkaun Úniku</span>
+                    <h2><?=lang('faq')?></h2>
+
+                </div>
+
+                <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="200">
+                    <div class="col-lg-10">
+
+                        <div class="accordion accordion-flush" id="faqlist">
+
+                            <?php
+
+                            $faqs = get_faq('balkaun-uniku');
+                            if ($faqs->have_posts()) {
+                                while ($faqs->have_posts()) {
+                                    $faqs->the_post();
+
+                                    ?>
+
+                                    <div class="accordion-item">
+                                        <h3 class="accordion-header">
+                                            <button class="accordion-button collapsed" type="button"
+                                                    data-bs-toggle="collapse"
+                                                    data-bs-target="#faq-content-<?= get_the_id() ?>">
+                                                <i class="bi bi-question-circle question-icon"></i>
+                                                <?= the_title() ?>
+                                            </button>
+                                        </h3>
+                                        <div id="faq-content-<?= get_the_id() ?>" class="accordion-collapse collapse"
+                                             data-bs-parent="#faqlist">
+                                            <div class="accordion-body">
+                                                <?= the_content() ?>
+                                            </div>
+                                        </div>
+                                    </div><!-- # Faq item-->
+
+                                    <?php
+                                }
+                                wp_reset_postdata();
+                            } else {
+                                ?>
+                                <span class="text-warning"><?= lang('no_data') ?></span>
+                                <?php
+
+                            }
+                            ?>
+
+
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </section><!-- End Frequently Asked Questions Section -->
+
+
+    </main><!-- End #main -->
+
+<?php
+include "balkaun_uniku_footer.php";

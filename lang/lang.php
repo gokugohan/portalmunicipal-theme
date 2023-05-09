@@ -287,6 +287,15 @@ $langs = [
         'Specialization'=>'Espcializasaun',
         'Course Language'=>'Lian',
         'Subtitle Language'=>'Legendas',
+        'balkaun_uniku'=>'Balkaun Úniku',
+        'portal_municipal'=>'Portal munisipal',
+        'search_here'=>"Buka iha ne'e",
+        'details'=>"Detailu",
+        'Servisus'=>"Servisus",
+        'what_is_balkaun_uniku'=>"Saida mak Balkaun Úniku",
+        'vision_and_mission_institutional'=>"Visaun no Misaun Institusional",
+        'values'=>"Valores",
+        'services'=>"Servisus",
         ],
     'pt' => [
         'home' =>'Início',
@@ -572,6 +581,15 @@ $langs = [
         'Specialization'=>'Espcialização',
         'Course Language'=>'Língua',
         'Subtitle Language'=>'Legendas',
+        'balkaun_uniku'=>'Balkaun Úniku',
+        'portal_municipal'=>'Portal municipal',
+        'search_here'=>'Procure aqui',
+        'details'=>"Detalhe",
+        'Servisus'=>"Serviços",
+        'what_is_balkaun_uniku'=>"O que é Balkaun Úniku",
+        'vision_and_mission_institutional'=>"Visão e Missão Institucional",
+        'values'=>"Valores",
+        'services'=>"Serviços",
         ],
     'en' => [
         'home' =>'Home',
@@ -863,6 +881,16 @@ $langs = [
         'Specialization'=>'Specialization',
         'Course Language'=>'Course Language',
         'Subtitle Language'=>'Subtitle Language',
+        'balkaun_uniku'=>'Balkaun Úniku',
+        'portal_municipal'=>'Municipality portal',
+        'search_here'=>'Search Here',
+        'details'=>"Details",
+        'Servisus'=>"Services",
+        'what_is_balkaun_uniku'=>"What is Balkaun Úniku",
+        'vision_and_mission_institutional'=>"Institutional Vision and Mission",
+        'values'=>"Values",
+        'services'=>"Services",
+
         ]
 ];
 

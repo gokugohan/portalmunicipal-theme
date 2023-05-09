@@ -106,6 +106,7 @@ function setting_base_url()
     <input type='text' name='setting_settings_general[setting_base_url]'
            class="regular-text form-control" placeholder="https://portal.municipio.gov.tl/"
            value='<?php echo $options['setting_base_url']; ?>'/>
+
     <?php
 }
 

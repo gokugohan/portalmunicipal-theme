@@ -7,12 +7,14 @@
 get_header();
 ?>
 
-    <section id="perfil-dos-municipios" class="section bg-white section-lg text-center pt-4">
+    <section id="perfil-dos-municipios" class="section bg-white section-lg text-center pt-4 pb-0">
         <div class="container-fluid pt-5">
-            <h2 class="text-uppercase font-weight-regular"><?= lang('municipality-profile') ?></h2>
-            <div class="container mt-3">
-                <!--                <p>--><?php //echo lang('second_description'); ?><!--</p>-->
+            <div class="section-header py-0">
+                <span><?= lang('portal_municipal') ?></span>
+                <h2><?= lang('municipality-profile') ?></h2>
+                
             </div>
+            
 
             <div class="row mt-4 mx-0">
                 <div class="col-md-12">
@@ -106,8 +108,11 @@ get_header();
     </section>
 
     <section id="mapping-of-investment" class="section bg-white section-lg text-center pt-4">
-        <div class="container-fluid pt-5">
-            <h2 class="text-uppercase font-weight-regular"><?= lang('mapping-of-investment') ?></h2>
+        <div class="container-fluid">
+            <div class="section-header pb-0">
+                <span><?= lang('portal_municipal') ?></span>
+                <h2><?= lang('mapping-of-investment') ?></h2>
+            </div>
             <div class="container">
                 <p class="text-italic mb-3"><?php echo lang('mapping-of-investment-subtitle'); ?></p>
                 <p><?php echo lang('mapping-of-investment-description'); ?></p>
@@ -159,8 +164,10 @@ if (is_plugin_simple_download_manager_active()) {
     ?>
     <section class="section section-lg pt-4" id="biblioteka">
         <div class="container-fluid pt-5">
-            <h2 class="text-center text-uppercase font-weight-regular"
-                style="color: #960807;"><?= lang('library') ?></h2>
+                <div class="section-header pb-0">
+                    <span><?= lang('portal_municipal') ?></span>
+                    <h2><?= lang('library') ?></h2>
+                </div>
             <div class="mt-4 mx-0 home-tab-container">
                 <div class="card">
                     <div class="card-body">

@@ -1,3 +1,4 @@
+
 <nav class="navbar navbar-expand-lg py-0 fixed-top navbar-dark">
     <div class="container" style="max-width: 85% !important;">
         <?php
@@ -79,12 +80,14 @@
                  */
                 if (class_exists('WPGlobus')): ?>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" title="<?= lang('switch_language') ?>" href="#"
+                        <a class="nav-link dropdown-toggle text-uppercase" title="<?= lang('switch_language') ?>" href="#"
                            id="navbarDropdown" role="button"
                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <img class="img_size language_image dropdown-toggle mt-0" data-toggle="dropdown"
-                                 style=""
-                                 src="<?php echo WPGlobus::Config()->flags_url . WPGlobus::Config()->flag[WPGlobus::Config()->language] ?>">
+                            <?php echo WPGlobus::Config()->language_name[WPGlobus::Config()->language];  ?>
+
+<!--                            <img class="img_size language_image dropdown-toggle mt-0" data-toggle="dropdown"-->
+<!--                                 style=""-->
+<!--                                 src="--><?php //echo WPGlobus::Config()->flags_url . WPGlobus::Config()->flag[WPGlobus::Config()->language] ?><!--">-->
                         </a>
 
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -95,11 +98,11 @@
                                 $is_current = true;
                                 if ($language != WPGlobus::Config()->language) {
                                     $url = WPGlobus_Utils::localize_current_url($language);
-
                                     $is_current = false;
-                                    $flag = '<img style="width:23px;" League="' . WPGlobus::Config()->flags_url . WPGlobus::Config()->flag[$language] . '" /> ' . WPGlobus::Config()->language_name[$language];
+//                                    $flag = '<img style="width:23px;" League="' . WPGlobus::Config()->flags_url . WPGlobus::Config()->flag[$language] . '" /> ' . WPGlobus::Config()->language_name[$language];
+                                    $lang_code =  WPGlobus::Config()->language_name[$language];
 
-                                    printf('<a %s %s>%s</a></>', (empty($url) ? '' : 'href="' . esc_url($url) . '"'), ($is_current ? 'class="wpglobus-current-languages dropdown-item"' : 'class ="dropdown-item"'), $flag);
+                                    printf('<a %s %s>%s</a></>', (empty($url) ? '' : 'href="' . esc_url($url) . '"'), ($is_current ? 'class="wpglobus-current-languages dropdown-item"' : 'class ="dropdown-item"'), $lang_code);
 
                                 }
                             }

@@ -37,10 +37,15 @@
             </div>
         </div>
 
+        <style>
+            #hero .icon-box img{
+                filter: none !important;
+            }
+        </style>
         <div class="row justify-content-center profile-catalog">
             <div class="col-xl-2 col-lg-3 col-md-4">
                 <div class="icon-box hoverable wow fadeInLeft">
-                    <img src="<?php echo get_stylesheet_directory_uri() . '/assets/img/front/08d916f9d739fc65496e16fbcbd38af4.png' ?>"
+                    <img  class="img-filter"src="<?php echo get_stylesheet_directory_uri() . '/assets/img/front/perfil_municipio.png' ?>"
                          alt="">
                     <h3><a href="#perfil-dos-municipios"
                            class="btn-load-municipalities"><?= lang('municipality-profile') ?></a></h3>
@@ -51,26 +56,29 @@
                 <div class="icon-box hoverable wow fadeInLeft" data-toggle="modal"
                      data-target="#modal-data-catalog">
                     <!--                    <img src="images/catalog.png" alt="">-->
-                    <img src="<?php echo get_stylesheet_directory_uri() . '/assets/img/front/a3c7bddf8c15cc48e2e74077aaa0e69c.png' ?>"
+                    <img  class="img-filter"src="<?php echo get_stylesheet_directory_uri() . '/assets/img/front/data_catalog.png' ?>"
                          alt="">
                     <h3><a href="#!" data-toggle="modal"
                            data-target="#modal-data-catalog"><?= lang('data_catalog') ?></a></h3>
                 </div>
             </div>
+<!--            -->
+<!--            <div class="col-xl-2 col-lg-3 col-md-4">-->
+<!--                <div class="icon-box hoverable wow fadeInLeft" data-target="#modal-service-to-citizen"-->
+<!--                     data-toggle="modal">-->
+<!--                    <img src="--><?php //echo get_stylesheet_directory_uri() . '/assets/img/front/d56b07fa25b1c546b415c695ae197aef.png' ?><!--"-->
+<!--                         alt="">-->
+<!--                    <h3><a href="--><?//= bloginfo('url') ?><!--/Service-to-citizen">--><?//= lang('service-to-citizen') ?><!--</a>-->
+<!--                    </h3>-->
+<!--                </div>-->
+<!--            </div>-->
 
-            <!--            <div class="col-xl-2 col-lg-3 col-md-4">-->
-            <!--                <div class="icon-box hoverable wow fadeInLeft">-->
-            <!--                    <img src="-->
-            <?php //echo get_stylesheet_directory_uri() . '/assets/img/front/e75a590fa7ea0df6cd9212a1459ae68b.png'?><!--" alt="">-->
-            <!--                    <h3><a href="#!" id="btn-view-library">--><? //= lang('library') ?><!--</a></h3>-->
-            <!--                </div>-->
-            <!--            </div>-->
             <div class="col-xl-2 col-lg-3 col-md-4">
-                <div class="icon-box hoverable wow fadeInLeft" data-target="#modal-service-to-citizen"
-                     data-toggle="modal">
-                    <img src="<?php echo get_stylesheet_directory_uri() . '/assets/img/front/d56b07fa25b1c546b415c695ae197aef.png' ?>"
+                <div class="icon-box hoverable wow fadeInLeft">
+                    <img src="<?php echo get_stylesheet_directory_uri() . '/assets/img/front/bu_logo_1.png' ?>"
                          alt="">
-                    <h3><a href="<?= bloginfo('url') ?>/Service-to-citizen"><?= lang('service-to-citizen') ?></a>
+                    <h3>
+                        <a href="<?= bloginfo('url') ?>/balkaun-uniku"><?= lang('balkaun_uniku') ?></a>
                     </h3>
                 </div>
             </div>
@@ -80,7 +88,7 @@
                 ?>
                 <div class="col-xl-2 col-lg-3 col-md-4">
                     <div class="icon-box hoverable wow fadeInLeft">
-                        <img src="<?php echo get_stylesheet_directory_uri() . '/assets/img/front/training.png' ?>" alt="">
+                        <img  class="img-filter"src="<?php echo get_stylesheet_directory_uri() . '/assets/img/front/training_platform.png' ?>" alt="">
                         <h3><a href="<?= bloginfo('url') ?>/plataforma-de-treinamentu"><?= lang('training-platform') ?></a>
                         </h3>
                     </div>
@@ -91,7 +99,7 @@
 
             <div class="col-xl-2 col-lg-3 col-md-4">
                 <div class="icon-box hoverable wow fadeInLeft">
-                    <img src="<?php echo get_stylesheet_directory_uri() . '/assets/img/front/fd06b8ea02fe5b1c2496fe1700e9d16c.png' ?>"
+                    <img  class="img-filter"src="<?php echo get_stylesheet_directory_uri() . '/assets/img/front/map.png' ?>"
                          alt="">
                     <h3><a href="<?= bloginfo('url') ?>/Mapa"><?= lang('map') ?></a></h3>
                 </div>

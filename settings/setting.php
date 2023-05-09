@@ -42,18 +42,26 @@ function empty_text_render()
 //    var_dump(trim($options['setting_visao']));
 }
 
+
 function render_textarea($id, $name, $content)
 {
-    $settings = array(
-        'textarea_name' => $name,
-        'media_buttons' => false,
-        'textarea_rows' => 5,
-        'editor_class' => 'form-control',
+    $settings =   array(
+        'wpautop' => true, // enable auto paragraph?
+        'media_buttons' => false, // show media buttons?
+        'textarea_name' => $name, // id of the target textarea
+        'textarea_rows' => get_option('default_post_edit_rows', 10), // This is equivalent to rows="" in HTML
+        'tabindex' => '',
+        'editor_css' => '', //  additional styles for Visual and Text editor,
+        'editor_class' => '', // sdditional classes to be added to the editor
+        'teeny' => true, // show minimal editor
+        'dfw' => false, // replace the default fullscreen with DFW
         'tinymce' => array(
-            'theme_advanced_buttons1' => 'formatselect,|,bold,italic,underline,|,' .
-                'bullist,blockquote,|,justifyleft,justifycenter' .
-                ',justifyright,justifyfull,|,link,unlink,|' .
-                ',spellchecker,wp_fullscreen,wp_adv'
+            // Items for the Visual Tab
+            'toolbar1'=> 'bold,italic,underline,bullist,numlist,link,unlink,forecolor,undo,redo,',
+        ),
+        'quicktags' => array(
+            // Items for the Text Tab
+            'buttons' => 'strong,em,underline,ul,ol,li,link,code'
         )
     );
     wp_editor($content, $id, $settings);

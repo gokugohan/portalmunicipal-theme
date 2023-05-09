@@ -8,10 +8,10 @@
             <div class="modal-body">
                 <div class="row" id="box3">
                     <div class="col-md-6"><a class="acn-head" target="_blank"
-                                             href="http://datasearch.test">
+                                             href="<?php echo $base_url_others; ?>datasearch/">
                         </a>
                         <div class="box3">
-                            <a class="acn-head" target="_blank" href="http://datasearch.test">
+                            <a class="acn-head" target="_blank" href="<?php echo $base_url_others; ?>datasearch/">
                                 <div class="box-circle"><img class="nor-icon" src="<?php echo get_stylesheet_directory_uri() . '/assets/img/box22.png'?>"
                                                              style="margin: 8px 8px;">
                                     <img class="hov-icon" src="<?php echo get_stylesheet_directory_uri() . '/assets/img/ii/icon-1.png'?>"

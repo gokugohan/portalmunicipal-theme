@@ -1,6 +1,6 @@
 <?php
 /*
-  Template Name: Comming Soon
+  Template Name: Comming Soon Page
  */
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
@@ -65,6 +65,53 @@
             background: #ab2120;
             border-color: #960807;
         }
+
+           .simply-countdown {
+               /* The countdown */
+               margin-top: 3em;
+               margin-bottom: 3em;
+           }
+        .simply-countdown > .simply-section {
+            /* coutndown blocks */
+            display: inline-block;
+            width: 110px;
+            height: 120px;
+            background: rgb(220 53 69);
+            margin: 0 7px;
+            position: relative;
+            animation: pulse 1.01s ease infinite;
+            box-shadow: 8px 0 8px #e6e6e6;
+            border-radius: 50%;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.03); }
+            100% { transform: scale(1); }
+        }
+
+        .simply-countdown > .simply-section > div {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+        }
+
+        .simply-countdown > .simply-section .simply-amount,
+        .simply-countdown > .simply-section .simply-word {
+            display: block;
+            color: rgba(255,255,255,1);
+        }
+
+        .simply-countdown > .simply-section .simply-amount {
+            font-size: 24px;
+        }
+
+        .simply-countdown > .simply-section .simply-word {
+            color: rgba(255,255,255,.7);
+            text-transform: uppercase;
+            font-size: 12px;
+        }
     </style>
 </head>
 <body>
@@ -86,9 +133,20 @@
                              style="width: 150px;"
                             alt="<?= filter_text_wpglobus(get_theme_mod('municipality_address_entity_name', 'Ministério da Administração Estatal')) ?>">
                     </p>
-                    <h1 class="text-uppercase mt-4 text-danger font-weight-bold">Under construction.</h1>
+                    <h1 class="text-uppercase mt-4 text-danger font-weight-bold">
+                        <?php
+                            if (have_posts()) {
+                                while (have_posts()) {
+                                    the_post();
+                                    the_content();
+                                }
+                            }
+
+                            ?>
+                    </h1>
                     <br>
-                    <a href="<?= home_url() ?>" class="btn btn-primary text-uppercase btn-back-to-homepage"><?= lang('back to homepage') ?></a>
+                    <div class="simply-countdown simply-countdown-one"></div>
+<!--                    <a href="--><?//= home_url() ?><!--" class="btn btn-primary text-uppercase btn-back-to-homepage">--><?//= lang('back to homepage') ?><!--</a>-->
                     <br>
                     <br>
                     <p class="credit">
@@ -100,5 +158,24 @@
 
     </div>
 </div>
+<script src="<?php echo get_stylesheet_directory_uri() . '/assets/js/simplyCountdown.js' ?>"></script>
+<script>
+    var d = new Date(new Date().getTime() + 800 * 120 * 120 * 2000);
+
+    // default example
+    simplyCountdown('.simply-countdown-one', {
+        year: d.getFullYear(),
+        month: d.getMonth() + 1,
+        day: d.getDate()
+    });
+
+    //jQuery example
+    // $('#simply-countdown-losange').simplyCountdown({
+    //     year: d.getFullYear(),
+    //     month: d.getMonth() + 1,
+    //     day: d.getDate(),
+    //     enableUtc: false
+    // });
+</script>
 </body>
 </html>
