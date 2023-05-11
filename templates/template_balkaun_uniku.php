@@ -45,7 +45,17 @@ $logo = $front_logo ? $front_logo : get_stylesheet_directory_uri() . '/assets/im
                             <img class="header-logo img-fluid mb-4" src="<?= $logo ?>" alt="MAE">
                         </div>
                         <!--                        <h2 data-aos="fade-up">Balkaun Úniku</h2>-->
-                        <p data-aos="fade-up" data-aos-delay="100"><?= the_excerpt() ?></p>
+                        <p data-aos="fade-up" data-aos-delay="100">
+                            <?php
+                            if (have_posts()) {
+                            while (have_posts()) {
+                            the_post();
+                                the_content();
+                            }
+                        }
+
+                        ?>
+                        </p>
                     </div>
                 </div>
             </div>
@@ -210,26 +220,6 @@ $logo = $front_logo ? $front_logo : get_stylesheet_directory_uri() . '/assets/im
                 </ol>
             </div>
         </section>
-
-
-        <!--        <section>-->
-        <!--            <div class="container">-->
-        <!--                --><?php
-        //                if (have_posts()) {
-        //                    while (have_posts()) {
-        //                        the_post();
-        //                        ?>
-        <!--                        <div class="text-justify">-->
-        <!--                            --><?php //the_content(); ?>
-        <!--                        </div>-->
-        <!--                        --><?php
-        //                    }
-        //                }
-        //
-        //                ?>
-        <!--            </div>-->
-        <!--        </section>-->
-
 
         <!-- ======= Services Section ======= -->
         <section id="service" class="services bg-light">

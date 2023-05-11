@@ -53,25 +53,12 @@
             </div>
 
             <div class="col-xl-2 col-lg-3 col-md-4">
-                <div class="icon-box hoverable wow fadeInLeft" data-toggle="modal"
-                     data-target="#modal-data-catalog">
-                    <!--                    <img src="images/catalog.png" alt="">-->
+                <div class="icon-box hoverable wow fadeInLeft">
                     <img  class="img-filter"src="<?php echo get_stylesheet_directory_uri() . '/assets/img/front/data_catalog.png' ?>"
                          alt="">
-                    <h3><a href="#!" data-toggle="modal"
-                           data-target="#modal-data-catalog"><?= lang('data_catalog') ?></a></h3>
+                    <h3><a href="<?= bloginfo('url') ?>/datasearch"><?= lang('data_catalog') ?></a></h3>
                 </div>
             </div>
-<!--            -->
-<!--            <div class="col-xl-2 col-lg-3 col-md-4">-->
-<!--                <div class="icon-box hoverable wow fadeInLeft" data-target="#modal-service-to-citizen"-->
-<!--                     data-toggle="modal">-->
-<!--                    <img src="--><?php //echo get_stylesheet_directory_uri() . '/assets/img/front/d56b07fa25b1c546b415c695ae197aef.png' ?><!--"-->
-<!--                         alt="">-->
-<!--                    <h3><a href="--><?//= bloginfo('url') ?><!--/Service-to-citizen">--><?//= lang('service-to-citizen') ?><!--</a>-->
-<!--                    </h3>-->
-<!--                </div>-->
-<!--            </div>-->
 
             <div class="col-xl-2 col-lg-3 col-md-4">
                 <div class="icon-box hoverable wow fadeInLeft">

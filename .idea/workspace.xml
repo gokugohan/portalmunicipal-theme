@@ -5,60 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e040ba39-7da6-4276-96c0-464a3acb5205" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/assets/balkaun_uniku/css/customized.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/balkaun_uniku/css/style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/balkaun_uniku/img/hero-bg.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/balkaun_uniku/img/logo.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/balkaun_uniku/img/wave.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/balkaun_uniku/js/script.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/img/bg.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/img/cargo-service.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/img/front/Untitled-1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/img/front/balkaun_uniku.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/img/front/bu_black.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/img/front/bu_logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/img/front/bu_logo_1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/img/front/bu_red.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/img/front/data_catalog.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/img/front/map.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/img/front/perfil_municipio.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/img/front/teste.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/img/front/training_platform.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/img/logistics-service.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/img/storage-service.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/js/simplyCountdown.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/map/css/leaflet_map.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/map/geojson/map_municipios_old.geojson" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/map/images/logo-map.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/map/images/marker_tl.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/map/js/poi_admin.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/settings/setting_balkaun.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/single-balkaununiku.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/balkaun_uniku_footer.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/balkaun_uniku_header.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/template_balkaun_poi.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/template_balkaun_uniku_inner_page.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/template_balkaun_uniku_services_page.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_404.php" beforeDir="false" afterPath="$PROJECT_DIR$/404.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/img/hero-bg.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/admin_setting.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/admin_setting.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/map/css/map.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/map/css/map.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/map/geojson/map_municipios.geojson" beforeDir="false" afterPath="$PROJECT_DIR$/assets/map/geojson/map_municipios.geojson" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/footer.php.old" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/functions.php" beforeDir="false" afterPath="$PROJECT_DIR$/functions.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/header.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/includes/hero.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/hero.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/modal_datacatalog_window.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/modal_datacatalog_window.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/top_bar_menu.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/top_bar_menu.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lang/lang.php" beforeDir="false" afterPath="$PROJECT_DIR$/lang/lang.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings/setting.php" beforeDir="false" afterPath="$PROJECT_DIR$/settings/setting.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings/setting_fragment_general.php" beforeDir="false" afterPath="$PROJECT_DIR$/settings/setting_fragment_general.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/single-faq.php" beforeDir="false" afterPath="$PROJECT_DIR$/single-faq.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/template_balkaun_uniku.php" beforeDir="false" afterPath="$PROJECT_DIR$/templates/template_balkaun_uniku.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/template_comming_soon.php" beforeDir="false" afterPath="$PROJECT_DIR$/templates/template_comming_soon.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/template_homepage_with_municipality_cpt.php" beforeDir="false" afterPath="$PROJECT_DIR$/templates/template_homepage_with_municipality_cpt.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -205,7 +154,9 @@
       <workItem from="1682641994789" duration="15987000" />
       <workItem from="1682690769536" duration="41000" />
       <workItem from="1682996893143" duration="5464000" />
-      <workItem from="1683610963043" duration="1489000" />
+      <workItem from="1683610963043" duration="2334000" />
+      <workItem from="1683769989385" duration="688000" />
+      <workItem from="1683787532490" duration="78000" />
     </task>
     <servers />
   </component>
