@@ -55,6 +55,9 @@ $logo = $front_logo ? $front_logo : get_stylesheet_directory_uri() . '/assets/im
                         }
 
                         ?>
+
+                            <h1><?=lang_code()?></h1>
+
                         </p>
                     </div>
                 </div>
