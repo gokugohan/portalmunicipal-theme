@@ -6,7 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="e040ba39-7da6-4276-96c0-464a3acb5205" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/template_balkaun_uniku.php" beforeDir="false" afterPath="$PROJECT_DIR$/templates/template_balkaun_uniku.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/template_balkaun_uniku_inner_page.php" beforeDir="false" afterPath="$PROJECT_DIR$/templates/template_balkaun_uniku_inner_page.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -157,7 +157,7 @@
       <workItem from="1683769989385" duration="688000" />
       <workItem from="1683787532490" duration="78000" />
       <workItem from="1683790158811" duration="132000" />
-      <workItem from="1683852839849" duration="1127000" />
+      <workItem from="1683852839849" duration="1845000" />
     </task>
     <servers />
   </component>
